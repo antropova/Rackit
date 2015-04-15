@@ -1,0 +1,18 @@
+<h1 class="text-center">UserIndex</h1><br />
+
+
+<div class="container">
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-lg-4 col-sm-6">
+        <%= link_to user_path(user.id) do %>
+          <%= image_tag user.image_url, class: "img-circle img-responsive", width: 150, height: 150 %>
+        <% end %>
+        
+      </div>
+    <% end %>
+  </div>
+</div>
+<br>
+
+
