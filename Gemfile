@@ -19,6 +19,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'figaro'
+gem 'omniauth'
+gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -49,7 +52,8 @@ group :test, :development do
   gem 'simplecov'
   gem 'database_cleaner'
   gem 'sqlite3'
-  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-nav'
   gem 'guard-rspec', require: false
   gem 'thin'
 end
