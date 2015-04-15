@@ -20,6 +20,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'figaro'
+gem 'carrierwave'
+gem 'simple_form'
 gem 'omniauth'
 gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
 # Use ActiveModel has_secure_password
