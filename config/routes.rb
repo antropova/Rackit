@@ -1,16 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
-
-  get 'users/edit'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/update'
-
-  get 'users/index'
-
   resources :users
   root 'welcome#index'
   get 'auth/:provider/callback', to: 'sessions#create'
