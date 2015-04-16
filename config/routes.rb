@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :users
   root 'welcome#index'
   get 'auth/:provider/callback', to: 'sessions#create'
+  # get 'auth/failure', to: redirect('/')  -- think of a route here
   get 'signout', to: 'sessions#destroy', as: :signout
 
 
