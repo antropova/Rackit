@@ -12,10 +12,11 @@ data["Document"]["Placemark"].each do |element|
   Corral.create(
     location: element["address"],
     racks: element["description"].scan(/\d/)[0].to_i,
-    borough_id: corral_borough.id
+    borough_id: corral_borough.id,
   )
 end
 names = ["Dan", "Masha", "Jayana", "Tiffany"]
 names.each do |name|
   User.create(name: name)
 end
+

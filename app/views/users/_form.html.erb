@@ -37,6 +37,9 @@
     <div class="field">
       <br><%= f.label :location, "Location", class: "control-label" %>
       <br><%= f.text_field :location, class: "form-control" %>
+
+      <br><%= f.select :location, User.location, class: "form-control" %>
+
     </div>
   </div>
 
