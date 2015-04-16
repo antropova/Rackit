@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   get 'users/index'
 
   resources :users
+  root 'welcome#index'
+  get 'auth/:provider/callback', to: 'sessions#create'
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -19,7 +25,6 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
