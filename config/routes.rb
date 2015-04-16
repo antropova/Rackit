@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get "/auth/:provider/callback", to: "sessions#create", as: "signin"
   get 'signout', to: 'sessions#destroy', as: "signout"
-
+  # get 'auth/failure', to: redirect('/')  -- think of a route here
   resources :users
   root 'welcome#index'
 
