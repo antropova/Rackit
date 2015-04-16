@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+     @user = User.find(params[:id])
   end
 
   def edit
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        flash[:success] = 'Your profile was created successfully!'
+        flash[:success] = 'Welcome to Rackit!'
         format.html { redirect_to home_url }
         format.json { render :show, status: :created, location: @user }
       else

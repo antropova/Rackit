@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # get 'auth/failure', to: redirect('/')  -- think of a route here
   resources :users
   root 'welcome#index'
+  get "/profile" => "users#show", as: :profile
+  get "/users" => "users#index"
+
 
 
 
