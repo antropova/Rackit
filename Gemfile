@@ -25,8 +25,8 @@ gem 'omniauth'
 gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem 'google_places'
+gem 'geocoder'
 gem 'json'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -72,4 +72,3 @@ group :production do
 end
 
 gem 'bootstrap-sass', '~> 3.1.1'
-gem 'gmaps4rails'
