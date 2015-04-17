@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :bike_corrals, through: :bikes
   has_many :reviews, through: :bike_corrals
   geocoded_by :ip_address, latitude: :latitude, longitude: :longitude
-  after_validation :geocode
+  after_validation :geocode, if: ->(obj) { obj.ip_address.present? || obj.ip_address_changed? }
 
 
   def self.create_with_omniauth(auth)
