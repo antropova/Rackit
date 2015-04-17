@@ -11,7 +11,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+<<<<<<< HEAD
      @user = User.find(params[:id])
+=======
+    binding.pry
+>>>>>>> 58522575e2070c242c275f9db5ea1563db9c2635
   end
 
   def edit
@@ -26,11 +30,18 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    binding.pry
     respond_to do |format|
       if @user.save
+        @user.update(ip_address: remote_ip)
         session[:user_id] = @user.id
+<<<<<<< HEAD
         flash[:success] = 'Welcome to Rackit!'
         format.html { redirect_to home_url }
+=======
+        flash[:success] = 'Your profile was created successfully!'
+        format.html { redirect_to root_url }
+>>>>>>> 58522575e2070c242c275f9db5ea1563db9c2635
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

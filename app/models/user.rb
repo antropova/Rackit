@@ -2,9 +2,12 @@ class User < ActiveRecord::Base
   has_many :bikes
   has_many :bike_corrals, through: :bikes
   has_many :reviews, through: :bike_corrals
+  geocoded_by :ip_address, latitude: :latitude, longitude: :longitude
+  after_validation :geocode, if: ->(obj) { obj.ip_address.present? || obj.ip_address_changed? }
+
 
   def self.create_with_omniauth(auth)
-    create! do |user|
+    new do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["nickname"]
