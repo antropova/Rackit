@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    binding.pry
+    # binding.pry
   end
 
   def edit
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    binding.pry
+    # binding.pry
     respond_to do |format|
       if @user.save
         @user.update(ip_address: remote_ip)
