@@ -16,4 +16,4 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree ../../../vendor/assets/javascripts/.
-//= require_tree .
+//= require map
