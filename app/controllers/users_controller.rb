@@ -6,19 +6,30 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+<<<<<<< HEAD
 
      @user = User.find(params[:id])
 
 
+=======
+    # binding.pry
+    @hash = Gmaps4rails.build_markers(@user) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+    end
+>>>>>>> 93e22ee9994af695c8920cdbb665cf3c90ec5c7c
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -29,15 +40,19 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    # binding.pry
     respond_to do |format|
       if @user.save
+<<<<<<< HEAD
         @user.update(ip_address: remote_ip)
         session[:user_id] = @user.id
 
         flash[:success] = 'Welcome to Rackit!'
         format.html { redirect_to home_url }
 
+=======
+        binding.pry
+        session[:user_id], session[:location] = @user.id, Geocoder.search(remote_ip).first.data
+>>>>>>> 93e22ee9994af695c8920cdbb665cf3c90ec5c7c
         flash[:success] = 'Your profile was created successfully!'
         format.html { redirect_to root_url }
 
