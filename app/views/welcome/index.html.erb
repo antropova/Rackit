@@ -6,16 +6,16 @@
   var allMarkers = <%=raw @hash.to_json %>;
 </script>
 
-<h1>Hello! Welcome to Rackit!</h1>
 
 <% if current_user %>
   Signed in as <%= current_user.name %>!
   <%= link_to "Sign out", signout_path %>
 <% else %>
+  <h1>Hello! Welcome to Rackit!</h1>
   <%= link_to "Sign in with Twitter", "/auth/twitter" %>
-  <%= link_to "Sign Up with Google", "/auth/google" %>
+  <%# link_to "Sign Up with Google", "/auth/google" %>
 <% end %>
 
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+<div style='width: 100%;'>
+  <div id="map" style='width: 100%; height: 45em;'></div>
 </div>
