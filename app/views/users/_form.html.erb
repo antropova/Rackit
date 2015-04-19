@@ -1,5 +1,14 @@
 <%= form_for(@user, class: "form-horizontal") do |f| %>
-
+  <% if @user.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.hidden_field :provider, value: @user.provider %>
     <%= f.hidden_field :uid, value: @user.uid %>
