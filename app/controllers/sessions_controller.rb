@@ -1,13 +1,8 @@
 class SessionsController < ApplicationController
-  def new
-  end
-
   def create
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"])
     if user
-      session[:user_id] = user.id
-      binding.pry
-      user.update(ip_address: remote_ip)
+      session[:user_id], session[:location] = user.id, Geocoder.search(remote_ip).first.data
       flash[:success] = "Welcome back, #{user.name}!"
       redirect_to root_url
     else
@@ -18,8 +13,7 @@ class SessionsController < ApplicationController
 
   def destroy
     binding.pry
-    current_user.update(ip_address: nil, longitude: nil, latitude: nil)
-    session[:user_id] = nil
+    session.destroy
     flash[:danger] = "Signed Out!"
     redirect_to root_url
   end
