@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: "signout"
   get '/attractions', to: 'attractions#index', as: "attractions"
   # get 'auth/failure', to: redirect('/')  -- think of a route here
+  get '/search', to: 'search#index'
+  get '/search_suggestions', to: 'search#autocomplete'
   resources :users
   resources :corrals
 

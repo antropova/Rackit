@@ -4,4 +4,12 @@ class Corral < ActiveRecord::Base
   belongs_to :borough
   geocoded_by :location
   after_validation :geocode, if: ->(obj) { obj.location.present? }
+
+  def self.search(search)
+    where('location LIKE ?', "%#{search}%")
+  end
+
+  def self.location_search(search)
+    search(search).limit(5).pluck(:location)
+  end
 end
