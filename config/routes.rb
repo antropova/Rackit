@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
   get "/auth/:provider/callback", to: "sessions#create", as: "signin"
   get 'signout', to: 'sessions#destroy', as: "signout"
+  get '/attractions', to: 'attractions#index', as: "attractions"
   # get 'auth/failure', to: redirect('/')  -- think of a route here
   resources :users
   resources :corrals
-  root 'welcome#index'
 
 
 
