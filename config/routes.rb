@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+
   get "/auth/:provider/callback", to: "sessions#create", as: "signin"
   get 'signout', to: 'sessions#destroy', as: "signout"
   # get 'auth/failure', to: redirect('/')  -- think of a route here
   get '/search', to: 'search#index'
+  get '/search_suggestions', to: 'search#autocomplete'
   resources :users
   resources :corrals
   root 'welcome#index'
