@@ -18,3 +18,4 @@
 //= require smoothscroll
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require map
+//= require crime_map
