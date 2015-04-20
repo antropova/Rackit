@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Corrals</h1>
+
+<table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Racks</th>
+      <th>Borough</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @corrals.each do |corral| %>
+      <tr>
+        <td><%= corral.location %></td>
+        <td><%= corral.racks %></td>
+        <td><%= corral.borough %></td>
+        <td><%= corral.latitude %></td>
+        <td><%= corral.longitude %></td>
+        <td><%= link_to 'Show', corral %></td>
+        <td><%= link_to 'Edit', edit_corral_path(corral) %></td>
+        <td><%= link_to 'Destroy', corral, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Corral', new_corral_path %>
