@@ -317,6 +317,7 @@ DEPENDENCIES
   google-analytics-rails
   google_places
   guard-rspec
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   json
@@ -324,6 +325,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-twitter!
   pg
+  pry
   pry-nav
   pry-rails
   rails (= 4.2.0)

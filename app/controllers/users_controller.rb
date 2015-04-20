@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        binding.pry
+        # binding.pry
         session[:user_id], session[:location] = @user.id, Geocoder.search(remote_ip).first.data
         flash[:success] = 'Your profile was created successfully!'
         format.html { redirect_to root_url }

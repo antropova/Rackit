@@ -19,3 +19,5 @@
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require map
 //= require welcome
+//= require crime_map
+
