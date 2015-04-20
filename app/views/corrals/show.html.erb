@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @corral.location %>
+</p>
+
+<p>
+  <strong>Racks:</strong>
+  <%= @corral.racks %>
+</p>
+
+<p>
+  <strong>Borough:</strong>
+  <%= @corral.borough.name %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @corral.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @corral.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_corral_path(@corral) %> |
+<%= link_to 'Back', corrals_path %>
