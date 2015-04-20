@@ -5,6 +5,6 @@
 <% else %>
   <% @corrals.each do |corral| %>
     <h3><%= corral.location %></h3>
-    <p><%= pluralize(corral.racks, "rack") %></p>
+    <p>(<%= pluralize(corral.racks, "rack") %>)</p>
   <% end %>
 <% end %>
