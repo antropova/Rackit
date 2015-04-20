@@ -7,18 +7,18 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @hash = Gmaps4rails.build_markers(@users) do |user, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
+      marker.lat(user_location["latitude"])
+      marker.lng(user_location["longitude"])
     end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    # binding.pry
+    @corrals = Corral.near([user_location["latitude"], user_location["longitude"]]).limit(10)
     @hash = Gmaps4rails.build_markers(@user) do |user, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
+      marker.lat(user_location["latitude"])
+      marker.lng(user_location["longitude"])
     end
   end
 
