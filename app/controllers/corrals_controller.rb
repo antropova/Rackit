@@ -4,11 +4,10 @@ class CorralsController < ApplicationController
   # GET /corrals
   # GET /corrals.json
   def index
-    data = session.to_hash["location"]
-    @corrals = Corral.near([data["latitude"], data["longitude"]]).limit(10)
+    @corrals = Corral.near([user_location["latitude"], user_location["longitude"]]).limit(10)
     @hash = Gmaps4rails.build_markers(@corrals) do |corral, marker|
-      marker.lat corral.latitude
-      marker.lng corral.longitude
+      marker.lat(corral.latitude)
+      marker.lng(corral.longitude)
     end
   end
 
