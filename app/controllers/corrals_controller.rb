@@ -5,7 +5,7 @@ class CorralsController < ApplicationController
   # GET /corrals.json
   def index
     data = session.to_hash["location"]
-    @corrals = Corral.near([data["latitude"], data["longitude"]], 10, order: :distance)
+    @corrals = Corral.near([data["latitude"], data["longitude"]]).limit(10)
     @hash = Gmaps4rails.build_markers(@corrals) do |corral, marker|
       marker.lat corral.latitude
       marker.lng corral.longitude
@@ -29,6 +29,7 @@ class CorralsController < ApplicationController
   # POST /corrals
   # POST /corrals.json
   def create
+    binding.pry
     @corral = Corral.new(corral_params)
 
     respond_to do |format|
@@ -74,6 +75,6 @@ class CorralsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def corral_params
-      params.require(:corral).permit(:location, :racks, :borough, :latitude, :longitude)
+      params.require(:corral).permit(:location, :racks, :borough_id, :latitude, :longitude)
     end
 end

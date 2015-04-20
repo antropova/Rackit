@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Corrals</h1>
+<h1>Listing Nearby Corrals</h1>
+<h2>Your Current Location:</h2>
+
+<%= location_data %>
+
 
 <table class="table table-hover table-responsive">
   <thead>
@@ -10,7 +14,6 @@
       <th>Borough</th>
       <th>Latitude</th>
       <th>Longitude</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -18,8 +21,8 @@
     <% @corrals.each do |corral| %>
       <tr>
         <td><%= corral.location %></td>
-        <td><%= corral.racks %></td>
-        <td><%= corral.borough %></td>
+        <%= rack_colors(corral) %>
+        <td><%= corral.borough.name %></td>
         <td><%= corral.latitude %></td>
         <td><%= corral.longitude %></td>
         <td><%= link_to 'Show', corral %></td>
