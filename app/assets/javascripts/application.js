@@ -15,6 +15,5 @@
 //= require bootstrap
 //= require underscore
 //= require gmaps/google
-//= require smoothscroll
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require map
