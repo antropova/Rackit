@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
   get "/auth/:provider/callback", to: "sessions#create", as: "signin"
   get 'signout', to: 'sessions#destroy', as: "signout"
+  get '/attractions', to: 'attractions#index', as: "attractions"
   # get 'auth/failure', to: redirect('/')  -- think of a route here
   get '/search', to: 'search#index'
+  get '/search_suggestions', to: 'search#autocomplete'
   resources :users
   resources :corrals
+<<<<<<< HEAD
   root 'welcome#index'
   get "/profile" => "users#show", as: :profile
   get "/users" => "users#index"
 
+=======
+>>>>>>> fdc9f16ec159b30298489150ed4ff43e7f9d000d
 
 
 

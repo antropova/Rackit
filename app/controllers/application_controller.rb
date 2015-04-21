@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  helper_method :current_user, :remote_ip, :user_location
+  helper_method :current_user, :remote_ip, :user_location, :client
 
   private
   def current_user
@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
   end
 
   def remote_ip
-    if request.remote_ip == '127.0.0.1'
-      '96.224.241.215'
-    else
-      request.remote_ip
-    end
+    request.remote_ip == '127.0.0.1' ? '96.224.241.215' : request.remote_ip
+  end
+
+  def client
+    GooglePlaces::Client.new(ENV['GOOGLE_PLACES_KEY'])
   end
 end

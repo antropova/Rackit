@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+<<<<<<< HEAD
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers([
@@ -15,4 +16,15 @@ $( document ).ready(function() {
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   });
+=======
+
+  if ($("#map").length >= 1 ) {
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(allMarkers);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+  }
+>>>>>>> fdc9f16ec159b30298489150ed4ff43e7f9d000d
 });

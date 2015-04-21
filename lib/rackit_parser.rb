@@ -41,3 +41,5 @@ class RackitParser
     ["Brooklyn", "Manhattan", "Queens", "Bronx", "Staten Island"]
   end
 end
+
+

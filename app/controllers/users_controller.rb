@@ -44,8 +44,12 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
 
+
         @user.update(ip_address: remote_ip)
         session[:user_id] = @user.id
+
+
+        # binding.pry
 
         session[:user_id], session[:location] = @user.id, Geocoder.search(remote_ip).first.data
 

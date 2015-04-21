@@ -8,4 +8,8 @@ class Corral < ActiveRecord::Base
   def self.search(search)
     where('location LIKE ?', "%#{search}%")
   end
+
+  def self.location_search(search)
+    search(search).limit(5).pluck(:location)
+  end
 end
