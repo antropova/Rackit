@@ -13,11 +13,16 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150417154457) do
 =======
 ActiveRecord::Schema.define(version: 20150420180702) do
 >>>>>>> fdc9f16ec159b30298489150ed4ff43e7f9d000d
 =======
+=======
+ActiveRecord::Schema.define(version: 20150417154457) do
+=======
+>>>>>>> jj
 ActiveRecord::Schema.define(version: 20150420211008) do
 >>>>>>> 3b44cf9babc3bcd5be61d36e1f57ec8a3a71232d
 
@@ -97,6 +102,7 @@ ActiveRecord::Schema.define(version: 20150420211008) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.string   "ip_address"
     t.float    "longitude"
     t.float    "latitude"
@@ -106,6 +112,12 @@ ActiveRecord::Schema.define(version: 20150420211008) do
 >>>>>>> fdc9f16ec159b30298489150ed4ff43e7f9d000d
 =======
 >>>>>>> 3b44cf9babc3bcd5be61d36e1f57ec8a3a71232d
+=======
+    t.string   "ip_address"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "picture"
+>>>>>>> jj
   end
 
 end

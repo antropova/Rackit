@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 <<<<<<< HEAD
 <<<<<<< HEAD
   root 'welcome#index'
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> jj
   get "/profile" => "users#show", as: :profile
   get "/users" => "users#index"
 

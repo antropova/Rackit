@@ -12,6 +12,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+<<<<<<< HEAD
+    # binding.pry
+=======
+>>>>>>> 97694736f34bcddd9c91caa82a3067ca3e2138fd
     session.destroy
     flash[:danger] = "Signed Out!"
     redirect_to root_url

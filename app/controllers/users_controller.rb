@@ -15,20 +15,36 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> jj
 
 
      @user = User.find(params[:id])
 
+<<<<<<< HEAD
     # binding.pry
 
     @corrals = Corral.near([user_location["latitude"], user_location["longitude"]]).limit(10)
 
+=======
+
+
+    # binding.pry
+=======
+    @corrals = Corral.near([user_location["latitude"], user_location["longitude"]]).limit(10)
+>>>>>>> 97694736f34bcddd9c91caa82a3067ca3e2138fd
+>>>>>>> jj
     @hash = Gmaps4rails.build_markers(@user) do |user, marker|
       marker.lat(user_location["latitude"])
       marker.lng(user_location["longitude"])
     end
 
   end
+  def gmaps4rails_marker_picture
+    { picture: "/assets/bike_icon/#{self.class.name}-icon#{marker_color}.png", width: "28", height: "33" }
+end
 
   def edit
   end
@@ -43,20 +59,37 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> jj
 
         @user.update(ip_address: remote_ip)
         session[:user_id] = @user.id
 
+<<<<<<< HEAD
 
+=======
+        flash[:success] = 'Welcome to Rackit!'
+        format.html { redirect_to home_url }
+
+
+=======
+>>>>>>> 3b44cf9babc3bcd5be61d36e1f57ec8a3a71232d
+>>>>>>> jj
         # binding.pry
 
         session[:user_id], session[:location] = @user.id, Geocoder.search(remote_ip).first.data
 
         flash[:success] = 'Your profile was created successfully!'
+<<<<<<< HEAD
 
         flash[:success] = 'Welcome to Rackit!'
         format.html { redirect_to home_url }
+=======
+        format.html { redirect_to root_url }
+>>>>>>> jj
 
         format.json { render :show, status: :created, location: @user }
       else
