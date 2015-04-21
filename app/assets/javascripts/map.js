@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // $( document ).ready(function() {
 class RichMarkerBuilder extends Gmaps.Google.Builders.Marker #inherit from builtin builder
   #override create_marker method
@@ -19,5 +20,17 @@ class RichMarkerBuilder extends Gmaps.Google.Builders.Marker #inherit from built
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   });
+=======
+$( document ).ready(function() {
+
+  if ($("#map").length >= 1 ) {
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(allMarkers);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+  }
+>>>>>>> 3b44cf9babc3bcd5be61d36e1f57ec8a3a71232d
 });
 

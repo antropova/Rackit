@@ -49,6 +49,7 @@ end
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+<<<<<<< HEAD
 
         @user.update(ip_address: remote_ip)
         session[:user_id] = @user.id
@@ -57,6 +58,8 @@ end
         format.html { redirect_to home_url }
 
 
+=======
+>>>>>>> 3b44cf9babc3bcd5be61d36e1f57ec8a3a71232d
         # binding.pry
         session[:user_id], session[:location] = @user.id, Geocoder.search(remote_ip).first.data
 
