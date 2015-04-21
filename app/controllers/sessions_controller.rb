@@ -2,10 +2,6 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"])
     if user
-<<<<<<< HEAD
-=======
-      # binding.pry
->>>>>>> th
       session[:user_id], session[:location] = user.id, Geocoder.search(remote_ip).first.data
       flash[:success] = "Welcome back, #{user.name}!"
       redirect_to root_url

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/search_suggestions', to: 'search#autocomplete'
   resources :users
   resources :corrals
+  root 'welcome#index'
+  resources :crimes
 
 
 
