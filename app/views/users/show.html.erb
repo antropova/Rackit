@@ -11,32 +11,33 @@
     <p><%= @user.bio%></p><br>
     Current Location: <strong><%=  get_address_in_print %></strong>
   </div>
-  <div class="col-md-8">
-    <table class="table table-hover table-responsive">
-      <thead>
-        <tr>
-          <th>Location</th>
-          <th>Racks</th>
-          <th>Borough</th>
-          <th>Latitude</th>
-          <th>Longitude</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @corrals.each do |corral| %>
-          <tr>
-            <td><%= corral.location %></td>
-            <%= rack_colors(corral) %>
-            <td><%= corral.borough.name %></td>
-            <td><%= corral.latitude %></td>
-            <td><%= corral.longitude %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+
+<div class="col-md-8">
+  <div id="map" style='width: 100%; height: 40em;'></div>
 </div>
 
 <div class="col-md-12">
-  <div id="map" style='width: 100%; height: 45em;'></div>
+  <table class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Racks</th>
+        <th>Borough</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @corrals.each do |corral| %>
+        <tr>
+          <td><%= corral.location %></td>
+          <%= rack_colors(corral) %>
+          <td><%= corral.borough.name %></td>
+          <td><%= corral.latitude %></td>
+          <td><%= corral.longitude %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
 </div>
