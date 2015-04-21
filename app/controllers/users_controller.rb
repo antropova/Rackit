@@ -15,19 +15,13 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-
-
-     @user = User.find(params[:id])
-
-    # binding.pry
-
+    @user = User.find(params[:id])
     @corrals = Corral.near([user_location["latitude"], user_location["longitude"]]).limit(10)
 
     @hash = Gmaps4rails.build_markers(@user) do |user, marker|
       marker.lat(user_location["latitude"])
       marker.lng(user_location["longitude"])
     end
-
   end
 
   def edit
@@ -43,21 +37,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-
-
-        @user.update(ip_address: remote_ip)
-        session[:user_id] = @user.id
-
-
-        # binding.pry
-
-        session[:user_id], session[:location] = @user.id, Geocoder.search(remote_ip).first.data
-
+        session[:user_id], session[:location] = @user.id, set_user_location
         flash[:success] = 'Your profile was created successfully!'
-
         flash[:success] = 'Welcome to Rackit!'
-        format.html { redirect_to home_url }
-
+        format.html { redirect_to root_url }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
