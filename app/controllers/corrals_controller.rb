@@ -28,7 +28,7 @@ class CorralsController < ApplicationController
   # POST /corrals
   # POST /corrals.json
   def create
-    binding.pry
+    # binding.pry
     @corral = Corral.new(corral_params)
 
     respond_to do |format|

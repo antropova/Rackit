@@ -12,10 +12,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150417154457) do
 =======
 ActiveRecord::Schema.define(version: 20150420180702) do
 >>>>>>> fdc9f16ec159b30298489150ed4ff43e7f9d000d
+=======
+ActiveRecord::Schema.define(version: 20150420211008) do
+>>>>>>> 3b44cf9babc3bcd5be61d36e1f57ec8a3a71232d
 
   create_table "bike_corrals", force: :cascade do |t|
     t.integer  "bike_id"
@@ -39,7 +43,10 @@ ActiveRecord::Schema.define(version: 20150420180702) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "crime_id"
   end
+
+  add_index "boroughs", ["crime_id"], name: "index_boroughs_on_crime_id"
 
   create_table "corrals", force: :cascade do |t|
     t.string   "location"
@@ -53,6 +60,14 @@ ActiveRecord::Schema.define(version: 20150420180702) do
   end
 
   add_index "corrals", ["borough_id"], name: "index_corrals_on_borough_id"
+
+  create_table "crimes", force: :cascade do |t|
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.text     "description"
@@ -81,6 +96,7 @@ ActiveRecord::Schema.define(version: 20150420180702) do
     t.string   "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.string   "ip_address"
     t.float    "longitude"
     t.float    "latitude"
@@ -88,6 +104,8 @@ ActiveRecord::Schema.define(version: 20150420180702) do
     t.string   "picture"
 =======
 >>>>>>> fdc9f16ec159b30298489150ed4ff43e7f9d000d
+=======
+>>>>>>> 3b44cf9babc3bcd5be61d36e1f57ec8a3a71232d
   end
 
 end
