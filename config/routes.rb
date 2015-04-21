@@ -8,12 +8,20 @@ Rails.application.routes.draw do
   get '/search_suggestions', to: 'search#autocomplete'
   resources :users
   resources :corrals
+<<<<<<< HEAD
+<<<<<<< HEAD
   root 'welcome#index'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 91642f2d6cf916151ae7763e7bcca509fe395c5d
   get "/profile" => "users#show", as: :profile
   get "/users" => "users#index"
 
 =======
+>>>>>>> fdc9f16ec159b30298489150ed4ff43e7f9d000d
+=======
+  root 'welcome#index'
   resources :crimes
 >>>>>>> 3b44cf9babc3bcd5be61d36e1f57ec8a3a71232d
 
