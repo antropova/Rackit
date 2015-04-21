@@ -8,25 +8,34 @@ class AttractionPresenter < BasePresenter
   end
 
   def attraction_types
-    content_tag(:strong, @model.types.join(", "))
+    @model.types.join(", ")
   end
 
   def attraction_status
-    if @model.opening_hours["open_now"]
-      content_tag(:strong, "Open Now!", class: "text-success")
+    if @model.opening_hours
+      @model.opening_hours["open_now"] ? h.content_tag(:p, "Open Now!", class: "text-success") : h.content_tag(:p, "Closed", class: "text-danger")
     else
-      content_tag(:strong, "Closed", class: "text-danger")
+      h.content_tag(:p, "No status given", class: "text-muted")
     end
   end
 
-  # def attraction_price
-  #   content_tag(:strong, class: "text-success") do
-  #     @model.price_level.times do |index|
-  #       "$"
-  #     end
-  #   end
-  # end
+  def attraction_price
+    if @model.price_level
+      dollar_signs = ""
+      (@model.price_level - 1).times do |index|
+        dollar_signs << "$"
+      end
+    end
+    h.content_tag(:p, dollar_signs, class: "text-success")
+  end
 
+  def attraction_rating
+    if @model.rating
+      @model.rating
+    else
+      content_tag(:p, "There is no rating on this area yet", class: "text-success")
+    end
+  end
 
   private
   def image_request
