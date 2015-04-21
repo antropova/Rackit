@@ -23,6 +23,9 @@
   <center><%= link_to "Advanced search", users_path %></center>
   <%# set path to users path until advanced search is built %>
 <% else %>
-  <h1>Hello! Welcome to Rackit!</h1>
-  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+  <div class="text-center">
+    <h1>Hello! Welcome to Rackit!</h1>
+    <%= fa_stacked_icon "twitter", base: "square-o", class: "fa-3x" %>
+    <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+  </div>
 <% end %>
