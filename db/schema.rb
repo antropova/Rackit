@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20150420211008) do
-
 
   create_table "bike_corrals", force: :cascade do |t|
     t.integer  "bike_id"
@@ -90,12 +88,10 @@ ActiveRecord::Schema.define(version: 20150420211008) do
     t.string   "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
     t.string   "ip_address"
     t.float    "longitude"
     t.float    "latitude"
     t.string   "picture"
-
   end
 
 end
