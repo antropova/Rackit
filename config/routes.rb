@@ -10,20 +10,17 @@ Rails.application.routes.draw do
   resources :corrals
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   root 'welcome#index'
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> jj
+=======
+>>>>>>> ca650d1bd66f7d3026a081b15ce6a7d5c823ca9a
   get "/profile" => "users#show", as: :profile
   get "/users" => "users#index"
-
-=======
->>>>>>> fdc9f16ec159b30298489150ed4ff43e7f9d000d
-=======
-  root 'welcome#index'
   resources :crimes
->>>>>>> 3b44cf9babc3bcd5be61d36e1f57ec8a3a71232d
 
 
 

@@ -22,37 +22,22 @@ class RichMarkerBuilder extends Gmaps.Google.Builders.Marker #inherit from built
   });
 =======
 $( document ).ready(function() {
-<<<<<<< HEAD
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers([
-    {
-    
-      "picture": {
-        "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-        "width":  36,
-        "height": 36
-      },
-      "infowindow": "hello!"
-    }
-  ]);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
-=======
-
   if ($("#map").length >= 1 ) {
     handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
       markers = handler.addMarkers(allMarkers);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
+      handler.getMap().setZoom(15);
     });
   }
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> fdc9f16ec159b30298489150ed4ff43e7f9d000d
 =======
 >>>>>>> 3b44cf9babc3bcd5be61d36e1f57ec8a3a71232d
 >>>>>>> jj
+=======
+>>>>>>> ca650d1bd66f7d3026a081b15ce6a7d5c823ca9a
 });
 

@@ -14,6 +14,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150417154457) do
 =======
 ActiveRecord::Schema.define(version: 20150420180702) do
@@ -23,8 +24,9 @@ ActiveRecord::Schema.define(version: 20150420180702) do
 ActiveRecord::Schema.define(version: 20150417154457) do
 =======
 >>>>>>> jj
+=======
+>>>>>>> ca650d1bd66f7d3026a081b15ce6a7d5c823ca9a
 ActiveRecord::Schema.define(version: 20150420211008) do
->>>>>>> 3b44cf9babc3bcd5be61d36e1f57ec8a3a71232d
 
   create_table "bike_corrals", force: :cascade do |t|
     t.integer  "bike_id"
@@ -103,6 +105,7 @@ ActiveRecord::Schema.define(version: 20150420211008) do
     t.datetime "updated_at", null: false
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.string   "ip_address"
     t.float    "longitude"
     t.float    "latitude"
@@ -118,6 +121,8 @@ ActiveRecord::Schema.define(version: 20150420211008) do
     t.float    "latitude"
     t.string   "picture"
 >>>>>>> jj
+=======
+>>>>>>> ca650d1bd66f7d3026a081b15ce6a7d5c823ca9a
   end
 
 end
