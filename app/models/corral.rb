@@ -15,4 +15,8 @@ class Corral < ActiveRecord::Base
   def self.location_search(search)
     search(search).limit(5).pluck(:location)
   end
+
+  def gmaps4rails_title
+    "#{self.location}"
+  end
 end
