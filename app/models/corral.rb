@@ -21,6 +21,6 @@ class Corral < ActiveRecord::Base
   # end
 
   def take_rack
-    self.racks -= 1 if self.racks >= 1
+    self.update(racks: self.racks -= 1) if self.racks >= 1
   end
 end
