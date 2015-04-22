@@ -4,7 +4,7 @@
   Sorry, nothing matches your search...
 <% else %>
   <% @corrals.each do |corral| %>
-    <h3><%= corral.location %></h3>
+    <h3><%= link_to corral.location, corral_path(corral) %></h3>
     <p>(<%= pluralize(corral.racks, "rack") %>)</p>
   <% end %>
 <% end %>
