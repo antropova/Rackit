@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Images:</strong>
-  <%= image_tag @corral.image_url %>
+<% if !@corral.images.empty? %>
+  <% @corral.images.each do |img| %>
+    <%= image_tag img.image_url %>
+  <% end %>
+<% else %>
+  <%= image_tag "corral", width: "200" %>
+<% end %>
 </p>
 
 <p>
