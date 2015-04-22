@@ -16,7 +16,11 @@ class Corral < ActiveRecord::Base
     search(search).limit(5).pluck(:location)
   end
 
-  def gmaps4rails_title
-    "#{self.location}"
+  # def gmaps4rails_title
+  #   "#{self.location}"
+  # end
+
+  def take_rack
+    self.racks -= 1 if self.racks >= 1
   end
 end
