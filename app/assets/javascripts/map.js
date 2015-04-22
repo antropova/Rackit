@@ -8,7 +8,7 @@ $( document ).ready(function() {
       markers = handler.addMarkers(addedTogether);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
-      handler.getMap().setZoom(15);
+      handler.getMap().setZoom(17);
     });
   }
 });
