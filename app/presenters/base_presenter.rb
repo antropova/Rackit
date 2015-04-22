@@ -4,8 +4,8 @@ class BasePresenter < SimpleDelegator
     super(@model)
   end
 
+  private
   def h
     @view
   end
 end
-  
