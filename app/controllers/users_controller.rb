@@ -19,10 +19,12 @@ class UsersController < ApplicationController
   def show
 
     @user = User.find(params[:id])
-    @corrals = Corral.near([user_location["latitude"], user_location["longitude"]], 1, :units => :km)
+    @corrals = Corral.near([user_location["latitude"], user_location["longitude"]]).limit(10)
+
     @hash = Gmaps4rails.build_markers(@user) do |user, marker|
       marker.lat(user_location["latitude"])
       marker.lng(user_location["longitude"])
+
       marker.json ({
         title: "#{@user.name}"
       })
@@ -39,6 +41,7 @@ class UsersController < ApplicationController
       marker.json ({
         title: "#{corral.location}"
       })
+
 
     end
   end
@@ -91,6 +94,10 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, success: 'Your account has been successfully deleted.' }
       format.json { head :no_content }
     end
+  end
+
+  def checkin
+    
   end
 
   private

@@ -7,11 +7,12 @@ Rails.application.routes.draw do
   get '/search', to: 'search#index'
   get '/search_suggestions', to: 'search#autocomplete'
   resources :users
-  resources :corrals
   get "/profile" => "users#show", as: :profile
   get "/users" => "users#index"
   resources :crimes
-  resources :corrals
+  resources :corrals do
+    get '/checkin', to: 'checkins#create', as: "checkins"
+  end
 
 
 
