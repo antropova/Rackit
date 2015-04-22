@@ -1,39 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-<% if !@corral.images.empty? %>
-  <% @corral.images.each do |img| %>
-    <%= image_tag img.image_url %>
+<div class="col-md-4">
+  <% if !@corral.images.empty? %>
+    <% @corral.images.each do |img| %>
+      <%= image_tag img.image_url %>
+    <% end %>
+  <% else %>
+    <%= image_tag "corral", width: "200" %>
   <% end %>
-<% else %>
-  <%= image_tag "corral", width: "200" %>
-<% end %>
-</p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @corral.location %>
-</p>
+  <p>
+    <strong>Location:</strong>
+    <%= @corral.location %>
+  </p>
 
-<p>
-  <strong>Racks:</strong>
-  <%= @corral.racks %>
-</p>
+  <p>
+    <strong>Racks:</strong>
+    <%= @corral.racks %>
+  </p>
 
-<p>
-  <strong>Borough:</strong>
-  <%= @corral.borough.name %>
-</p>
+  <p>
+    <strong>Borough:</strong>
+    <%= @corral.borough.name %>
+  </p>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @corral.latitude %>
-</p>
+  <p>
+    <strong>Latitude:</strong>
+    <%= @corral.latitude %>
+  </p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @corral.longitude %>
-</p>
+  <p>
+    <strong>Longitude:</strong>
+    <%= @corral.longitude %>
+  </p>
+</div>
 
-<%= link_to 'Edit', edit_corral_path(@corral) %> |
-<%= link_to 'Back', corrals_path %>
+<div class="col-md-8">
+  <%= link_to "Check In", user_path, class: "btn btn-primary" %>
+</div>
+
+<div class="col-md-12">
+  <%= link_to 'Edit', edit_corral_path(@corral) %> |
+  <%= link_to 'Back', corrals_path %>
+</div>
