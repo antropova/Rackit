@@ -9,16 +9,15 @@ class UsersController < ApplicationController
     @hash = Gmaps4rails.build_markers(@users) do |user, marker|
       marker.lat(user_location["latitude"])
       marker.lng(user_location["longitude"])
+      marker.infowindow(corral.location)
+     
     end
-  end
-
+  end 
+ 
   # GET /users/1
   # GET /users/1.json
   def show
-<<<<<<< HEAD
-
-
-     @user = User.find(params[:id])
+  @user = User.find(params[:id])
 
 
     # binding.pry
@@ -28,6 +27,7 @@ class UsersController < ApplicationController
     @hash = Gmaps4rails.build_markers(@user) do |user, marker|
       marker.lat(user_location["latitude"])
       marker.lng(user_location["longitude"])
+
     end
   end
   

@@ -8,6 +8,7 @@ class CorralsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@corrals) do |corral, marker|
       marker.lat(corral.latitude)
       marker.lng(corral.longitude)
+      marker.infowindow(corral.description)
     end
   end
 
