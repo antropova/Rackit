@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/profile" => "users#show", as: :profile
   get "/users" => "users#index"
   resources :crimes
+  resources :corrals
 
 
 
