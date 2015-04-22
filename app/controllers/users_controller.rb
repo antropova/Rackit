@@ -28,6 +28,13 @@ class UsersController < ApplicationController
     @hash_two = Gmaps4rails.build_markers(@corrals) do |corral, marker|
       marker.lat(corral.latitude)
       marker.lng(corral.longitude)
+      marker.infowindow corral.location
+      iconBase = 'https://maps.google.com/mapfiles/kml/shapes/'
+      marker.picture({
+        "url" => "http://www.edmonton.ca/activities_parks_recreation/documents/Logos/icon_bike_32x32.png",
+        "width" => 35,
+        "height" => 35
+        })
       marker.json ({
         title: "#{corral.location}"
       })
