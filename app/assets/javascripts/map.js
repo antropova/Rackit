@@ -3,16 +3,26 @@ $( document ).ready(function() {
   if ($("#map").length >= 1 ) {
     handler = Gmaps.build('Google'); //, builders: { Marker: CustomMarkerBuilder }
 
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
-      function(){
+    handler.buildMap({ 
+      provider: {zoom: 5}, 
+      internal: {id: 'map'}
+    },
+     function(){
       var addedTogether = allMarkers.concat(allMarkersTwo);
       markers = handler.addMarkers(addedTogether);
+        // {"lat": 10, "lng": 0},
+        //  {"lat": 1, "lng": 0},
+        //  {"lat": 0, "lng": 1},
+        //  {"lat": -1, "lng": 0},
+        //  {"lat": 0, "lng": -1},
+        //  ]);
       handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      handler.getMap().setZoom(17);
+        // handler.fitMapToBounds();
+       // handler.getMap().setZoom(15);
     });
   }
 });
+
 
 // function createImage(url){
 //   var image = {

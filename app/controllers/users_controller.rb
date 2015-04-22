@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @hash = Gmaps4rails.build_markers(@users) do |user, marker|
       marker.lat(user_location["latitude"])
       marker.lng(user_location["longitude"])
-      marker.infowindow(corral.location)
+      # marker.infowindow(corral.location)
      
     end
   end 

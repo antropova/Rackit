@@ -107,9 +107,6 @@ ActiveRecord::Schema.define(version: 20150422145105) do
     t.string   "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "ip_address"
-    t.float    "longitude"
-    t.float    "latitude"
     t.string   "picture"
   end
 
