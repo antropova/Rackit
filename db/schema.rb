@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420211008) do
+ActiveRecord::Schema.define(version: 20150422145105) do
 
   create_table "bike_corrals", force: :cascade do |t|
     t.integer  "bike_id"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20150420211008) do
 
   add_index "boroughs", ["crime_id"], name: "index_boroughs_on_crime_id"
 
+  create_table "checkins", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "corral_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "checkins", ["corral_id"], name: "index_checkins_on_corral_id"
+  add_index "checkins", ["user_id"], name: "index_checkins_on_user_id"
+
   create_table "corrals", force: :cascade do |t|
     t.string   "location"
     t.boolean  "sheltered",  default: false
@@ -60,6 +70,15 @@ ActiveRecord::Schema.define(version: 20150420211008) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "corral_id"
+    t.string   "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "images", ["corral_id"], name: "index_images_on_corral_id"
 
   create_table "reviews", force: :cascade do |t|
     t.text     "description"
