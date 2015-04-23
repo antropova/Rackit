@@ -1,27 +1,23 @@
 
 $( document ).ready(function() {
+  
   if ($("#map").length >= 1 ) {
-    handler = Gmaps.build('Google'); //, builders: { Marker: CustomMarkerBuilder }
+   handler = Gmaps.build('Google',{ markers: { clusterer: {gridSize: 30, maxZoom: 15} } }); //, builders: { Marker: CustomMarkerBuilder }
 
     handler.buildMap({ 
-      provider: {zoom: 5}, 
+      provider: {}, 
       internal: {id: 'map'}
     },
      function(){
       var addedTogether = allMarkers.concat(allMarkersTwo);
-      markers = handler.addMarkers(addedTogether);
-        // {"lat": 10, "lng": 0},
-        //  {"lat": 1, "lng": 0},
-        //  {"lat": 0, "lng": 1},
-        //  {"lat": -1, "lng": 0},
-        //  {"lat": 0, "lng": -1},
-        //  ]);
+      markers = handler.addMarkers(addedTogether); 
       handler.bounds.extendWith(markers);
-        // handler.fitMapToBounds();
-       // handler.getMap().setZoom(15);
+         handler.fitMapToBounds();
+        handler.getMap().setZoom(15);
     });
   }
 });
+
 
 
 // function createImage(url){
