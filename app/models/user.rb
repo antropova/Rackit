@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, on: :create, message: " is already taken"
   after_create :sign_up_user
 
+  def self.testing
+    binding.pry
+  end
+
   def self.create_with_omniauth(auth)
     new do |user|
       user.provider = auth["provider"]
@@ -24,8 +28,9 @@ class User < ActiveRecord::Base
     corral.update!(racks: self.racks -= 1) if corral.racks >= 1
   end
 
-  private
+  # private 
   def sign_up_user
-    UserMailer.registration_confirmation(self).deliver_now
+    # binding.pry
+    BlakeMailer.registration_confirmation(self).deliver_now
   end
 end
