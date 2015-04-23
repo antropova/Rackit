@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20150423190435) do
     t.string   "uid"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "picture"
     t.boolean  "checked_in", default: false
   end
 

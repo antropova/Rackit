@@ -1,8 +1,10 @@
 
+
+
 $( document ).ready(function() {
 
   if ($("#map").length >= 1 ) {
-   handler = Gmaps.build('Google',{ markers: { clusterer: {gridSize: 30, maxZoom: 30} } }); //, builders: { Marker: CustomMarkerBuilder }
+   handler = Gmaps.build('Google',{ markers: { clusterer: {gridSize: 60, maxZoom: 30} } }); //, builders: { Marker: CustomMarkerBuilder }
 
     handler.buildMap({
       provider: {},
@@ -13,7 +15,7 @@ $( document ).ready(function() {
       markers = handler.addMarkers(addedTogether);
       handler.bounds.extendWith(markers);
          handler.fitMapToBounds();
-        handler.getMap().setZoom(16);
+        handler.getMap().setZoom(15);
     });
   }
 

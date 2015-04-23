@@ -86,7 +86,7 @@ class UsersController < ApplicationController
  end
 
  def checkin
-
+   
  end
 
  private
