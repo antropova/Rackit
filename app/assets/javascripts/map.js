@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // $( document ).ready(function() {
 class RichMarkerBuilder extends Gmaps.Google.Builders.Marker #inherit from builtin builder
   #override create_marker method
@@ -21,19 +22,27 @@ class RichMarkerBuilder extends Gmaps.Google.Builders.Marker #inherit from built
     handler.fitMapToBounds();
   });
 =======
-$( document ).ready(function() {
-  if ($("#map").length >= 1 ) {
-    handler = Gmaps.build('Google'); //, builders: { Marker: CustomMarkerBuilder }
+=======
 
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
-      function(){
+>>>>>>> jj
+$( document ).ready(function() {
+  
+  if ($("#map").length >= 1 ) {
+   handler = Gmaps.build('Google',{ markers: { clusterer: {gridSize: 30, maxZoom: 15} } }); //, builders: { Marker: CustomMarkerBuilder }
+
+    handler.buildMap({ 
+      provider: {}, 
+      internal: {id: 'map'}
+    },
+     function(){
       var addedTogether = allMarkers.concat(allMarkersTwo);
-      markers = handler.addMarkers(addedTogether);
+      markers = handler.addMarkers(addedTogether); 
       handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      handler.getMap().setZoom(17);
+         handler.fitMapToBounds();
+        handler.getMap().setZoom(15);
     });
   }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> fdc9f16ec159b30298489150ed4ff43e7f9d000d
@@ -42,5 +51,32 @@ $( document ).ready(function() {
 >>>>>>> jj
 =======
 >>>>>>> ca650d1bd66f7d3026a081b15ce6a7d5c823ca9a
+=======
+>>>>>>> jj
 });
+
+
+
+// function createImage(url){
+//   var image = {
+//     url: url,
+//     // This marker is 32 pixels wide by 32 pixels tall.
+//     size: new google.maps.Size(32, 32),
+//     // The origin for this image is 0,0.
+//     origin: new google.maps.Point(0,0),
+//     // The anchor for this image is the base of the flagpole at 0,32.
+//     anchor: new google.maps.Point(0, 32)
+//   };
+//   return image;
+// }
+
+// function createCustomMarker(coords,map,title){
+//   marker = new google.maps.Marker({
+//     position: coords,
+//     map: map,
+//     title: title,
+//     icon: createImage("/assets/bike_icon.png")
+//   });
+// }
+
 

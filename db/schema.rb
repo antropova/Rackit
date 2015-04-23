@@ -11,26 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150417154457) do
-=======
-ActiveRecord::Schema.define(version: 20150420180702) do
->>>>>>> fdc9f16ec159b30298489150ed4ff43e7f9d000d
-=======
-=======
-ActiveRecord::Schema.define(version: 20150417154457) do
-=======
->>>>>>> jj
-=======
->>>>>>> ca650d1bd66f7d3026a081b15ce6a7d5c823ca9a
-ActiveRecord::Schema.define(version: 20150420211008) do
-=======
+
+
 ActiveRecord::Schema.define(version: 20150422213909) do
->>>>>>> 61c14f552debfbb3c27f3f95e7db671355f66121
+
 
   create_table "bike_corrals", force: :cascade do |t|
     t.integer  "bike_id"
@@ -124,34 +108,11 @@ ActiveRecord::Schema.define(version: 20150422213909) do
     t.text     "bio"
     t.string   "provider"
     t.string   "uid"
-<<<<<<< HEAD
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    t.string   "ip_address"
-    t.float    "longitude"
-    t.float    "latitude"
-<<<<<<< HEAD
-    t.string   "picture"
-=======
->>>>>>> fdc9f16ec159b30298489150ed4ff43e7f9d000d
-=======
->>>>>>> 3b44cf9babc3bcd5be61d36e1f57ec8a3a71232d
-=======
-    t.string   "ip_address"
-    t.float    "longitude"
-    t.float    "latitude"
-    t.string   "picture"
->>>>>>> jj
-=======
->>>>>>> ca650d1bd66f7d3026a081b15ce6a7d5c823ca9a
-=======
+
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "checked_in", default: false
->>>>>>> 61c14f552debfbb3c27f3f95e7db671355f66121
+
   end
 
 end
