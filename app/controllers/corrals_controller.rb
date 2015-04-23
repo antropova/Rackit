@@ -15,6 +15,8 @@ class CorralsController < ApplicationController
   # GET /corrals/1
   # GET /corrals/1.json
   def show
+    # binding.pry
+    @user = User.find(current_user.id)
   end
 
   # GET /corrals/new
