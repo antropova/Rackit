@@ -14,10 +14,11 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap/modal
 //= require underscore
 //= require gmaps/google
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require map
 //= require welcome
+//= require corrals
 //= require crime_map
-
