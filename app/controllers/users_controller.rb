@@ -27,9 +27,7 @@ class UsersController < ApplicationController
      marker.lng(corral.longitude)
      marker.infowindow corral.location
      marker.picture({
-       "url" => "http://www.edmonton.ca/activities_parks_recreation/documents/Logos/icon_bike_32x32.png (2KB)
-
-",
+       "url" => "http://www.edmonton.ca/activities_parks_recreation/documents/Logos/icon_bike_32x32.png (2KB)",
        "width" => 50,
        "height" => 50
        })

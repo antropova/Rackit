@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :reviews, through: :bike_corrals
   validates_presence_of :email, :name, on: :create, message: "can't be blank"
   validates_uniqueness_of :email, on: :create, message: " is already taken"
+  after_create :sign_up_user
 
   def self.create_with_omniauth(auth)
     new do |user|
@@ -21,4 +22,9 @@ class User < ActiveRecord::Base
   def checkin
     
   end
+
+  def sign_up_user
+    UserMailer.registration_confirmation(self).deliver_now 
+  end
+
 end
