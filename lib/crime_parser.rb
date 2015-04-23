@@ -16,7 +16,7 @@ class CrimeParser
 	end
 
 	def call
-		crime_result = parsed_info(addresses)
+		crime_result = parsed_info(crimes)
 		results = crime_result["features"].map do |element|
 			[element["geometry"]["coordinates"], element["properties"]["CR"]]
 		end
