@@ -2,7 +2,6 @@ class UserMailer < ApplicationMailer
 
   def registration_confirmation(user)
     @user = user
-    # binding.pry
     # attachments["bike_icon.png"] = File.read("")
     binding.pry
     mail to: @user.email
