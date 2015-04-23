@@ -6,10 +6,11 @@ class CheckinsController < ApplicationController
       @checkin.save
       current_user.checkin
       flash[:success] = "You have checked in to this corral!"
-      redirect_to corral_path(corral.id)
+      # redirect_to corral_path(corral.id)
     else
       flash[:danger] = "You could not checkin to this corral"
     end
+    redirect_to corral_path(corral.id)
   end
 
   def destroy

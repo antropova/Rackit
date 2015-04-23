@@ -36,10 +36,13 @@
 </div>
 
 <div class="col-md-8">
-  <%= link_to "Check In", user_path, class: "btn btn-primary" %>
+  <% if !@user.checked_in %>
+    <%= link_to "Check In", corral_path(@corral.id), class: "btn btn-primary" %>
+  <% end %>
 </div>
 
 <div class="col-md-12">
-  <%= link_to 'Edit', edit_corral_path(@corral) %> |
-  <%= link_to 'Back', corrals_path %>
+Reviews:
+  <%# link_to 'Edit', edit_corral_path(@corral) %> 
+  <%# link_to 'Back', corrals_path %>
 </div>

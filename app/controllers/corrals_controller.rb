@@ -8,12 +8,15 @@ class CorralsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@corrals) do |corral, marker|
       marker.lat(corral.latitude)
       marker.lng(corral.longitude)
+      marker.infowindow(corral.description)
     end
   end
 
   # GET /corrals/1
   # GET /corrals/1.json
   def show
+    # binding.pry
+    @user = User.find(current_user.id)
   end
 
   # GET /corrals/new
