@@ -19,3 +19,8 @@ names = ["Dan", "Masha", "Jayana", "Tiffany"]
 names.each do |name|
   User.create(name: name)
 end
+
+results = CrimeParser.parse
+results.each do |key, value|
+  Crime.create!(name: value, longitude: key[0], latitude:key[1])
+end

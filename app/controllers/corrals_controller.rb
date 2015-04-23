@@ -16,7 +16,6 @@ class CorralsController < ApplicationController
   # GET /corrals/1.json
   def show
     @users = User.where(current_corral_location: @corral.location)
-    binding.pry
   end
 
   # GET /corrals/new
@@ -31,7 +30,6 @@ class CorralsController < ApplicationController
   # POST /corrals
   # POST /corrals.json
   def create
-    # binding.pry
     @corral = Corral.new(corral_params)
 
     respond_to do |format|
