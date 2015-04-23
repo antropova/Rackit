@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @corrals = Corral.near([user_location["latitude"], user_location["longitude"]], 1, units: :km)
-
     @hash = Gmaps4rails.build_markers(@user) do |user, marker|
       marker.lat(user_location["latitude"])
       marker.lng(user_location["longitude"])
