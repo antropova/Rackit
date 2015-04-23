@@ -16,11 +16,23 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @corrals = Corral.near([user_location["latitude"], user_location["longitude"]]).limit(10)
+    @corrals = Corral.near([user_location["latitude"], user_location["longitude"]], 1, units: :km)
 
     @hash = Gmaps4rails.build_markers(@user) do |user, marker|
       marker.lat(user_location["latitude"])
       marker.lng(user_location["longitude"])
+    end
+    @hash_two = Gmaps4rails.build_markers(@corrals) do |corral, marker|
+      marker.lat(corral.latitude)
+      marker.lng(corral.longitude)
+      marker.infowindow({
+        "content" =>  "#{corral.location}"
+        })
+      marker.picture({
+        "url" => "http://www.edmonton.ca/activities_parks_recreation/documents/Logos/icon_bike_32x32.png",
+        "width" => 50,
+        "height" => 50
+        })
     end
   end
 
