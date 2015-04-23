@@ -4,3 +4,5 @@
 // }
 
 // var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+map.data.loadGeoJson('./geojson.geojson');

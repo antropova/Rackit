@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Nearby Crimes</h1>
+<h2>Your Current Location:</h2>
+
+<%# location_data %>
+
+<table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Borough</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @crimes.each do |crime| %>
+      <tr>
+        <td><%= crime.location %></td>
+        <td><%= crime.borough.name %></td>
+        <td><%= crime.latitude %></td>
+        <td><%= crime.longitude %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

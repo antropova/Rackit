@@ -15,7 +15,6 @@ class CorralsController < ApplicationController
   # GET /corrals/1
   # GET /corrals/1.json
   def show
-    # binding.pry
     @user = User.find(current_user.id)
   end
 
@@ -31,7 +30,6 @@ class CorralsController < ApplicationController
   # POST /corrals
   # POST /corrals.json
   def create
-    # binding.pry
     @corral = Corral.new(corral_params)
 
     respond_to do |format|
