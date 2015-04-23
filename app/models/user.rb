@@ -21,11 +21,11 @@ class User < ActiveRecord::Base
 
   def checkin(corral)
     update!(checked_in: true)
-    corral.update!(racks: self.racks -= 1) if self.racks >= 1)
+    corral.update!(racks: self.racks -= 1) if corral.racks >= 1
   end
 
+  private
   def sign_up_user
-    UserMailer.registration_confirmation(self).deliver_now 
+    UserMailer.registration_confirmation(self).deliver_now
   end
-
 end

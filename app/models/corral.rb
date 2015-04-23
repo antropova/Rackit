@@ -19,8 +19,4 @@ class Corral < ActiveRecord::Base
   # def gmaps4rails_title
   #   "#{self.location}"
   # end
-
-  # def take_rack
-  #   self.update(racks: self.racks -= 1) if self.racks >= 1
-  # end
 end
