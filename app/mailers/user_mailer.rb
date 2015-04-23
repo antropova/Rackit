@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
   def registration_confirmation(user)
     @user = user
     # attachments["bike_icon.png"] = File.read("")
-    binding.pry
+    # binding.pry
     mail to: @user.email
     # mail(to: 'mikel@test.lindsaar.net') do |format|
     #   format.text { render plain: "Hello Mikel!" }
