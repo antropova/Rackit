@@ -31,6 +31,6 @@ class User < ActiveRecord::Base
   # private 
   def sign_up_user
     # binding.pry
-    BlakeMailer.registration_confirmation(self).deliver_now
+    UserMailer.registration_confirmation(self).deliver_now
   end
 end
