@@ -105,19 +105,13 @@ ActiveRecord::Schema.define(version: 20150423190435) do
     t.text     "bio"
     t.string   "provider"
     t.string   "uid"
-<<<<<<< HEAD
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.string   "picture"
-    t.boolean  "checked_in", default: false
-=======
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.string   "picture"
     t.boolean  "checked_in",               default: false
     t.string   "current_corral_location",  default: ""
     t.float    "current_corral_latitude",  default: 0.0
     t.float    "current_corral_longitude", default: 0.0
->>>>>>> 5f3c12a2c8d0047da30080510f368a7093713db9
   end
 
 end
