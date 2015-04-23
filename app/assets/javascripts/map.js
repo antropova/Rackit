@@ -23,12 +23,15 @@ class RichMarkerBuilder extends Gmaps.Google.Builders.Marker #inherit from built
 =======
 $( document ).ready(function() {
   if ($("#map").length >= 1 ) {
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(allMarkers);
+    handler = Gmaps.build('Google'); //, builders: { Marker: CustomMarkerBuilder }
+
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
+      function(){
+      var addedTogether = allMarkers.concat(allMarkersTwo);
+      markers = handler.addMarkers(addedTogether);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
-      handler.getMap().setZoom(15);
+      handler.getMap().setZoom(17);
     });
   }
 <<<<<<< HEAD

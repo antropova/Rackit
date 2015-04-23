@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> jj
@@ -27,6 +28,10 @@ class UsersController < ApplicationController
     # binding.pry
 
     @corrals = Corral.near([user_location["latitude"], user_location["longitude"]]).limit(10)
+=======
+    @user = User.find(params[:id])
+    @corrals = Corral.near([user_location["latitude"], user_location["longitude"]], 1, units: :km)
+>>>>>>> 61c14f552debfbb3c27f3f95e7db671355f66121
 
 =======
 
@@ -40,7 +45,16 @@ class UsersController < ApplicationController
       marker.lat(user_location["latitude"])
       marker.lng(user_location["longitude"])
     end
-
+    @hash_two = Gmaps4rails.build_markers(@corrals) do |corral, marker|
+      marker.lat(corral.latitude)
+      marker.lng(corral.longitude)
+      marker.infowindow corral.location
+      marker.picture({
+        "url" => "http://www.edmonton.ca/activities_parks_recreation/documents/Logos/icon_bike_32x32.png",
+        "width" => 50,
+        "height" => 50
+        })
+    end
   end
   def gmaps4rails_marker_picture
     { picture: "/assets/bike_icon/#{self.class.name}-icon#{marker_color}.png", width: "28", height: "33" }
@@ -59,6 +73,7 @@ end
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -91,6 +106,12 @@ end
         format.html { redirect_to root_url }
 >>>>>>> jj
 
+=======
+        session[:user_id], session[:location] = @user.id, set_user_location
+        flash[:success] = 'Your profile was created successfully!'
+        flash[:success] = 'Welcome to Rackit!'
+        format.html { redirect_to root_url }
+>>>>>>> 61c14f552debfbb3c27f3f95e7db671355f66121
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -124,8 +145,12 @@ end
     end
   end
 
+  def checkin
+    
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
+  # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
   end

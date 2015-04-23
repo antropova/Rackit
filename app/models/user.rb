@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :bikes
+  has_many :checkins
+  has_many :corrals, through: :checkins
   has_many :bike_corrals, through: :bikes
   has_many :reviews, through: :bike_corrals
   validates_presence_of :email, :name, on: :create, message: "can't be blank"
@@ -14,5 +16,9 @@ class User < ActiveRecord::Base
       user.location = auth["info"]["location"]
       user.image_url = auth["info"]["image"]
     end
+  end
+
+  def checkin
+    
   end
 end

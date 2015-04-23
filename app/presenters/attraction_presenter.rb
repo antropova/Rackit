@@ -33,7 +33,7 @@ class AttractionPresenter < BasePresenter
     if @model.rating
       @model.rating
     else
-      content_tag(:p, "There is no rating on this area yet", class: "text-success")
+      h.content_tag(:p, "There is no rating on this area yet", class: "text-success")
     end
   end
 

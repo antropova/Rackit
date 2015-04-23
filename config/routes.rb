@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/search', to: 'search#index'
   get '/search_suggestions', to: 'search#autocomplete'
   resources :users
+<<<<<<< HEAD
   resources :corrals
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -18,9 +19,14 @@ Rails.application.routes.draw do
 >>>>>>> jj
 =======
 >>>>>>> ca650d1bd66f7d3026a081b15ce6a7d5c823ca9a
+=======
+>>>>>>> 61c14f552debfbb3c27f3f95e7db671355f66121
   get "/profile" => "users#show", as: :profile
   get "/users" => "users#index"
   resources :crimes
+  resources :corrals do
+    get '/checkin', to: 'checkins#create', as: "checkins"
+  end
 
 
 

@@ -1,29 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @corral.location %>
-</p>
+<div class="col-md-4">
+  <% if !@corral.images.empty? %>
+    <% @corral.images.each do |img| %>
+      <%= image_tag img.image_url %>
+    <% end %>
+  <% else %>
+    <%= image_tag "corral", width: "200" %>
+  <% end %>
 
-<p>
-  <strong>Racks:</strong>
-  <%= @corral.racks %>
-</p>
+  <p>
+    <strong>Location:</strong>
+    <%= @corral.location %>
+  </p>
 
-<p>
-  <strong>Borough:</strong>
-  <%= @corral.borough.name %>
-</p>
+  <p>
+    <strong>Racks:</strong>
+    <%= @corral.racks %>
+  </p>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @corral.latitude %>
-</p>
+  <p>
+    <strong>Borough:</strong>
+    <%= @corral.borough.name %>
+  </p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @corral.longitude %>
-</p>
+  <p>
+    <strong>Latitude:</strong>
+    <%= @corral.latitude %>
+  </p>
 
-<%= link_to 'Edit', edit_corral_path(@corral) %> |
-<%= link_to 'Back', corrals_path %>
+  <p>
+    <strong>Longitude:</strong>
+    <%= @corral.longitude %>
+  </p>
+</div>
+
+<div class="col-md-8">
+  <% if !@user.checked_in %>
+    <%= link_to "Check In", corral_path(@corral.id), class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<div class="col-md-12">
+Reviews:
+  <%# link_to 'Edit', edit_corral_path(@corral) %> 
+  <%# link_to 'Back', corrals_path %>
+</div>

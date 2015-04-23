@@ -15,6 +15,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150417154457) do
 =======
 ActiveRecord::Schema.define(version: 20150420180702) do
@@ -27,6 +28,9 @@ ActiveRecord::Schema.define(version: 20150417154457) do
 =======
 >>>>>>> ca650d1bd66f7d3026a081b15ce6a7d5c823ca9a
 ActiveRecord::Schema.define(version: 20150420211008) do
+=======
+ActiveRecord::Schema.define(version: 20150422213909) do
+>>>>>>> 61c14f552debfbb3c27f3f95e7db671355f66121
 
   create_table "bike_corrals", force: :cascade do |t|
     t.integer  "bike_id"
@@ -55,6 +59,16 @@ ActiveRecord::Schema.define(version: 20150420211008) do
 
   add_index "boroughs", ["crime_id"], name: "index_boroughs_on_crime_id"
 
+  create_table "checkins", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "corral_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "checkins", ["corral_id"], name: "index_checkins_on_corral_id"
+  add_index "checkins", ["user_id"], name: "index_checkins_on_user_id"
+
   create_table "corrals", force: :cascade do |t|
     t.string   "location"
     t.boolean  "sheltered",  default: false
@@ -75,6 +89,15 @@ ActiveRecord::Schema.define(version: 20150420211008) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "corral_id"
+    t.string   "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "images", ["corral_id"], name: "index_images_on_corral_id"
 
   create_table "reviews", force: :cascade do |t|
     t.text     "description"
@@ -101,6 +124,7 @@ ActiveRecord::Schema.define(version: 20150420211008) do
     t.text     "bio"
     t.string   "provider"
     t.string   "uid"
+<<<<<<< HEAD
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
 <<<<<<< HEAD
@@ -123,6 +147,11 @@ ActiveRecord::Schema.define(version: 20150420211008) do
 >>>>>>> jj
 =======
 >>>>>>> ca650d1bd66f7d3026a081b15ce6a7d5c823ca9a
+=======
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "checked_in", default: false
+>>>>>>> 61c14f552debfbb3c27f3f95e7db671355f66121
   end
 
 end
