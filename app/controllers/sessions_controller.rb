@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-
     session.destroy
     flash[:danger] = "Signed Out!"
     redirect_to root_url

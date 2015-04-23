@@ -4,60 +4,43 @@
 </script>
 
 <div class="row">
-  <div class="col-md-4">
-    <h1 class="page-header"><%= @user.name %></h1>
-    <%= image_tag @user.image_url, class: "img-circle img-responsive" %><br>
-    <p><%= @user.email %></p><br>
-    <p><%= @user.location %></p><br>
-    <p><%= @user.bio%></p><br>
-    Current Location: <strong><%=  get_address_in_print %></strong>
-  </div>
 
-  <% if current_user == @user %>
-    <div class="col-md-8">
-      <div id="map" style='width: 100%; height: 40em;'></div>
-    </div>
-  <% end %>
-
-
-<div style='width: 100%;'>
-
-<div class="col-md-12">
-
-  <div id="map" style='width: 100%; height: 45em;'></div>
-
-
-<!-- 
-<div style='width: 100%;'>
-
-<div class="col-md-12"> -->
-
-
-  <!-- <div id="map" style='width: 100%; height: 45em;'></div>
- -->
-  <table class="table table-hover table-responsive">
-    <thead>
-      <tr>
-        <th>Location</th>
-        <th>Racks</th>
-        <th>Borough</th>
-        <th>Latitude</th>
-        <th>Longitude</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @corrals.each do |corral| %>
+ <div class="col-md-4">
+   <h1 class="page-header"><%= @user.name %></h1>
+   <%= image_tag @user.image_url, class: "img-circle img-responsive" %><br>
+   <p><%= @user.email %></p><br>
+   <p><%= @user.location %></p><br>
+   <p><%= @user.bio%></p><br>
+   Current Location: <strong><%=  get_address_in_print %></strong>
+ </div>
+ <% if current_user == @user %>
+   <div class="col-md-8">
+     <div id="map" style='width: 100%; height: 40em;'></div>
+   </div>
+ <% end %>
+  <div class="col-md-12">
+    <table class="table table-hover table-responsive">
+      <thead>
         <tr>
-          <td><%= corral.location %></td>
-          <%= rack_colors(corral) %>
-          <td><%= corral.borough.name %></td>
-          <td><%= corral.latitude %></td>
-          <td><%= corral.longitude %></td>
-          <td><%= link_to "Checkin!", corral_checkins_path(corral.id) %></td>
+          <th>Location</th>
+          <th>Racks</th>
+          <th>Borough</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
         </tr>
-      <% end %>
-    </tbody>
-
+      </thead>
+      <tbody>
+        <% @corrals.each do |corral| %>
+          <tr>
+            <td><%= corral.location %></td>
+            <%= rack_colors(corral) %>
+            <td><%= corral.borough.name %></td>
+            <td><%= corral.latitude %></td>
+            <td><%= corral.longitude %></td>
+            <td><%= link_to "Checkin!", corral_checkins_path(corral.id) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-
 

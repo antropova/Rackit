@@ -8,12 +8,6 @@ Rails.application.routes.draw do
   get '/search_suggestions', to: 'search#autocomplete'
   resources :users
 
-
-  resources :corrals
-
-
-
-
   get "/profile" => "users#show", as: :profile
   get "/users" => "users#index"
   resources :crimes
