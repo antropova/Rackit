@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
   if ($("#map").length >= 1 ) {
-   handler = Gmaps.build('Google',{ markers: { clusterer: {gridSize: 30, maxZoom: 30} } }); //, builders: { Marker: CustomMarkerBuilder }
+   handler = Gmaps.build('Google',{ markers: { clusterer: {gridSize: 50, maxZoom: 30} } }); //, builders: { Marker: CustomMarkerBuilder }
 
     handler.buildMap({
       provider: {},
