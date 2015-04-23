@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <div class="col-md-4">
+  <% if current_user.current_corral_location == @corral.location %>
+    <strong>You are currently checked in at this corral</strong>
+  <% end %>
+  Users currently at this corral:
+  <% @users.each do |user| %>
+    <%= link_to "#{user.name}", user_path(user) %>
+  <% end %>
+
   <% if !@corral.images.empty? %>
     <% @corral.images.each do |img| %>
       <%= image_tag img.image_url %>
@@ -8,7 +16,6 @@
   <% else %>
     <%= image_tag "corral", width: "200" %>
   <% end %>
-
   <p>
     <strong>Location:</strong>
     <%= @corral.location %>
@@ -36,13 +43,13 @@
 </div>
 
 <div class="col-md-8">
-  <% if !@user.checked_in %>
+  <% if !current_user.checked_in %>
     <%= link_to "Check In", corral_path(@corral.id), class: "btn btn-primary" %>
   <% end %>
 </div>
 
 <div class="col-md-12">
 Reviews:
-  <%# link_to 'Edit', edit_corral_path(@corral) %> 
+  <%# link_to 'Edit', edit_corral_path(@corral) %>
   <%# link_to 'Back', corrals_path %>
 </div>

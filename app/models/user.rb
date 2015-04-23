@@ -20,8 +20,11 @@ class User < ActiveRecord::Base
   end
 
   def checkin(corral)
-    update!(checked_in: true)
-    corral.update!(racks: self.racks -= 1) if corral.racks >= 1
+    update!(
+    current_corral_location: corral.location,
+    current_corral_latitude: corral.latitude,
+    current_corral_longitude: corral.longitude)
+    corral.update!(racks: corral.racks -= 1) if corral.racks >= 1
   end
 
   private
