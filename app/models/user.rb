@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def checkin
-    
+  def checkin(corral)
+    update!(checked_in: true)
+    corral.update!(racks: self.racks -= 1) if self.racks >= 1)
   end
 end

@@ -8,4 +8,8 @@ class BasePresenter < SimpleDelegator
   def h
     @view
   end
+
+  def method_missing(*args, &blk)
+    @view.send(args, blk)
+  end
 end

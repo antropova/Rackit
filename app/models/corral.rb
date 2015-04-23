@@ -20,7 +20,7 @@ class Corral < ActiveRecord::Base
   #   "#{self.location}"
   # end
 
-  def take_rack
-    self.update(racks: self.racks -= 1) if self.racks >= 1
-  end
+  # def take_rack
+  #   self.update(racks: self.racks -= 1) if self.racks >= 1
+  # end
 end

@@ -3,10 +3,8 @@ class CheckinsController < ApplicationController
     @checkin = current_user.checkins.build(corral_id: params[:corral_id])
     corral = Corral.find(params[:corral_id])
     if !current_user.checked_in
-      binding.pry
       @checkin.save
-      current_user.update(checked_in: true)
-      corral.take_rack
+      current_user.checkin
       flash[:success] = "You have checked in to this corral!"
       redirect_to corral_path(corral.id)
     else
