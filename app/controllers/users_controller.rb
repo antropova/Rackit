@@ -87,13 +87,12 @@ class UsersController < ApplicationController
    end
  end
 
-<<<<<<< HEAD
+
  def checkin
    
  end
 
-=======
->>>>>>> f5c8e79c5fe2905a6af2d9fd7914433ff34a6897
+
  private
  # Use callbacks to share common setup or constraints between actions.
  def set_user
