@@ -29,7 +29,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @corrals.each do |corral| %>
+        <% @corrals_to_view.each do |corral| %>
           <tr>
             <td><%= corral.location %></td>
             <%= rack_colors(corral) %>
@@ -41,6 +41,7 @@
         <% end %>
       </tbody>
     </table>
+  <%= will_paginate @corrals_to_view, previous_label: h("<"), next_label: h(">") %>
   </div>
   <!-- <div class="modal fade" id="myModal">
       <div class="modal-dialog">
