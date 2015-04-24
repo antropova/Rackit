@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20150424021625) do
     t.string   "name"
     t.string   "email"
     t.string   "image_url"
+    t.string   "location"
     t.text     "bio"
     t.string   "provider"
     t.string   "uid"
@@ -110,7 +111,6 @@ ActiveRecord::Schema.define(version: 20150424021625) do
     t.string   "current_location",   default: ""
     t.float    "current_latitude",   default: 0.0
     t.float    "current_longitude",  default: 0.0
-    t.string   "location"
     t.string   "current_sign_in_ip"
   end
 
