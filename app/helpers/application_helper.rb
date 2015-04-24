@@ -7,6 +7,6 @@ module ApplicationHelper
 
   private
   def presenter_name(object)
-    object.class == "GooglePlaces::Spot" ? "Attraction" : object.class
+    object.class == GooglePlaces::Spot ? "Attraction" : object.class
   end
 end

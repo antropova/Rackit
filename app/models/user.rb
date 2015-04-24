@@ -24,14 +24,11 @@ class User < ActiveRecord::Base
   end
 
   def checkin(corral)
-    update!(
-    current_corral_location: corral.location,
-    current_corral_latitude: corral.latitude,
-    current_corral_longitude: corral.longitude)
+    update!(current_location: corral.location, current_latitude: corral.latitude,current_longitude: corral.longitude)
     corral.update!(racks: corral.racks -= 1) if corral.racks >= 1
   end
 
-  # private 
+  # private
   def sign_up_user
     # binding.pry
     UserMailer.registration_confirmation(self).deliver_now

@@ -3,7 +3,7 @@ module UserHelper
     if !current_user.checked_in
       Geocoder.address([user_location["latitude"], user_location["longitude"]])
     else
-      Geocoder.address([current_user.current_corral_latitude, current_user.current_corral_longitude])
+      Geocoder.address([current_user.current_latitude, current_user.current_longitude])
     end
   end
 end

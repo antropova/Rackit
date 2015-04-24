@@ -15,7 +15,7 @@ class CorralsController < ApplicationController
   # GET /corrals/1
   # GET /corrals/1.json
   def show
-    @users = User.where(current_corral_location: @corral.location)
+    @users = User.where(current_location: @corral.location)
   end
 
   # GET /corrals/new

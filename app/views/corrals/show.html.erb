@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="col-md-4">
-  <% if current_user.current_corral_location == @corral.location %>
+  <% if current_user.current_location == @corral.location %>
     <strong>You are currently checked in at this corral</strong>
   <% end %>
   Users currently at this corral:
@@ -49,7 +49,19 @@
 </div>
 
 <div class="col-md-12">
-Reviews:
-  <%# link_to 'Edit', edit_corral_path(@corral) %>
-  <%# link_to 'Back', corrals_path %>
+  <p>
+    <strong>Reviews:</strong>
+  </p>
+  <%= form_for([@corral, Review.new]) do |f| %>
+  <div class="form-group">
+      <div class="field">
+        <%= f.text_area :description, placeholder: "Your review here", class: "form-control", rows: "7", cols: "100" %>
+      </div>
+    </div>
+    <div class="actions text-right">
+      <br /><%= f.submit "Submit Review", class: "btn btn-primary" %>
+    </div>
+  <% end %><br />
+    <%# link_to 'Edit', edit_corral_path(@corral) %>
+    <%# link_to 'Back', corrals_path %>
 </div>

@@ -17,6 +17,7 @@ class UsersController < ApplicationController
  def show
    @user = User.find(params[:id])
    @corrals = Corral.near([user_location["latitude"], user_location["longitude"]], 1, units: :km)
+   @corrals_to_view = @corrals.limit(50).page(params[:page]).per_page(10)
 
    @hash = Gmaps4rails.build_markers(@user) do |user, marker|
      marker.lat(user_location["latitude"])
@@ -47,7 +48,6 @@ class UsersController < ApplicationController
    @user = User.new(user_params)
    respond_to do |format|
      if @user.save
-       UserMailer.registration_confirmation(@user).deliver_now
        session[:user_id], session[:location] = @user.id, set_user_location
        flash[:success] = 'Your profile was created successfully!'
        flash[:success] = 'Welcome to Rackit!'

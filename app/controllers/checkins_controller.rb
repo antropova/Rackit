@@ -2,7 +2,7 @@ class CheckinsController < ApplicationController
   def create
     @checkin = current_user.checkins.build(corral_id: params[:corral_id])
     corral = Corral.find(params[:corral_id])
-    if current_user.current_corral_location != corral.location
+    if current_user.current_location != corral.location
       @checkin.save
       current_user.checkin(corral)
       flash[:success] = "You have checked in to this corral!"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423213646) do
+ActiveRecord::Schema.define(version: 20150424021625) do
 
   create_table "bike_corrals", force: :cascade do |t|
     t.integer  "bike_id"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20150423213646) do
     t.text     "bio"
     t.string   "provider"
     t.string   "uid"
+
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.string   "picture"
@@ -115,6 +116,7 @@ ActiveRecord::Schema.define(version: 20150423213646) do
     t.string   "current_corral_location",  default: ""
     t.float    "current_corral_latitude",  default: 0.0
     t.float    "current_corral_longitude", default: 0.0
+
   end
 
 end
