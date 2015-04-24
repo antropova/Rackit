@@ -6,10 +6,6 @@ class UsersController < ApplicationController
  # GET /users.json
  def index
    @users = User.all
-   @hash = Gmaps4rails.build_markers(@users) do |user, marker|
-     marker.lat(current_user.latitude)
-     marker.lng(current_user.longitude)
-   end
  end
 
  # GET /users/1
@@ -49,8 +45,8 @@ class UsersController < ApplicationController
    @user = User.new(user_params)
    respond_to do |format|
      if @user.save
-       session[:user_id] = user.id
-       user.update!(user_location_params)
+       session[:user_id] = @user.id
+       @user.update!(user_location_params)
        flash[:success] = 'Your profile was created successfully!'
        flash[:success] = 'Welcome to Rackit!'
        format.html { redirect_to root_url }
