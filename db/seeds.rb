@@ -24,7 +24,6 @@ end
 # results = CrimeParser.parse
 # results.each do |key, value|
 #   Crime.create!(
-#   name: value,
 #   longitude: key[0],
 #   latitude:key[1]
 #   )
