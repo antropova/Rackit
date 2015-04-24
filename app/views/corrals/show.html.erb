@@ -43,7 +43,7 @@
 </div>
 
 <div class="col-md-8">
-  <% if !current_user.checked_in %>
+  <% if !current_user.location == @corral.location %>
     <%= link_to "Check In", corral_path(@corral.id), class: "btn btn-primary" %>
   <% end %>
 </div>
