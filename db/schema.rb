@@ -35,7 +35,10 @@ ActiveRecord::Schema.define(version: 20150424021625) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "crime_id"
   end
+
+  add_index "boroughs", ["crime_id"], name: "index_boroughs_on_crime_id"
 
   create_table "checkins", force: :cascade do |t|
     t.integer  "user_id"
