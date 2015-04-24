@@ -14,6 +14,7 @@ root 'welcome#index'
   resources :corrals do
     resources :reviews
     get '/checkin', to: 'checkins#create', as: "checkins"
+    get '/checkout', to: 'checkins#destroy', as: "checkouts"
   end
 
 

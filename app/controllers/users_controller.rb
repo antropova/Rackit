@@ -7,22 +7,22 @@ class UsersController < ApplicationController
  def index
    @users = User.all
    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
-     marker.lat(user_location["latitude"])
-     marker.lng(user_location["longitude"])
+     marker.lat(current_user.latitude)
+     marker.lng(current_user.longitude)
    end
  end
 
  # GET /users/1
  # GET /users/1.json
  def show
-   @user = User.find(params[:id])
-   # binding.pry
-   @corrals = Corral.near([user_location["latitude"], user_location["longitude"]], 1, units: :km)
+
+   @corrals = Corral.near([current_user.current_latitude, current_user.current_longitude], 1, units: :km)
+
    @corrals_to_view = @corrals.limit(50).page(params[:page]).per_page(10)
 
    @hash = Gmaps4rails.build_markers(@user) do |user, marker|
-     marker.lat(user_location["latitude"])
-     marker.lng(user_location["longitude"])
+     marker.lat(current_user.current_latitude)
+     marker.lng(current_user.current_longitude)
    end
    @hash_two = Gmaps4rails.build_markers(@corrals) do |corral, marker|
      marker.lat(corral.latitude)
@@ -49,7 +49,8 @@ class UsersController < ApplicationController
    @user = User.new(user_params)
    respond_to do |format|
      if @user.save
-       session[:user_id], session[:location] = @user.id, set_user_location
+       session[:user_id] = user.id
+       user.update!(user_location_params)
        flash[:success] = 'Your profile was created successfully!'
        flash[:success] = 'Welcome to Rackit!'
        format.html { redirect_to root_url }
@@ -86,10 +87,13 @@ class UsersController < ApplicationController
    end
  end
 
+<<<<<<< HEAD
  def checkin
    
  end
 
+=======
+>>>>>>> f5c8e79c5fe2905a6af2d9fd7914433ff34a6897
  private
  # Use callbacks to share common setup or constraints between actions.
  def set_user

@@ -11,12 +11,9 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def set_user_location
-    Geocoder.search(remote_ip).first.data
-  end
-
-  def user_location
-    session.to_hash["location"]
+  def user_location_params
+    location = Geocoder.search(remote_ip).first
+    {current_location: location.address, current_latitude: location.latitude, current_longitude: location.longitude, current_sign_in_ip: remote_ip}
   end
 
   def remote_ip
