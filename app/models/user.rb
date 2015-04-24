@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   after_create :sign_up_user
 
   def self.testing
-    binding.pry
   end
 
   def self.create_with_omniauth(auth)
@@ -30,7 +29,6 @@ class User < ActiveRecord::Base
 
   # private
   def sign_up_user
-    # binding.pry
     UserMailer.registration_confirmation(self).deliver_now
   end
 end

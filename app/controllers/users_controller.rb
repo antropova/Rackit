@@ -16,7 +16,6 @@ class UsersController < ApplicationController
  # GET /users/1.json
  def show
    @user = User.find(params[:id])
-   binding.pry
    @corrals = Corral.near([user_location["latitude"], user_location["longitude"]], 1, units: :km)
    @corrals_to_view = @corrals.limit(50).page(params[:page]).per_page(10)
 

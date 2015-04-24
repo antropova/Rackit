@@ -5,7 +5,6 @@ class CrimesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@crimes) do |crime, marker|
       marker.lat(crime.latitude)
       marker.lng(crime.longitude)
-      marker.infowindow(crime.name)
     end
   end
 
