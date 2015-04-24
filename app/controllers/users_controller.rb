@@ -48,7 +48,6 @@ class UsersController < ApplicationController
    @user = User.new(user_params)
    respond_to do |format|
      if @user.save
-       UserMailer.registration_confirmation(@user).deliver_now
        session[:user_id], session[:location] = @user.id, set_user_location
        flash[:success] = 'Your profile was created successfully!'
        flash[:success] = 'Welcome to Rackit!'
