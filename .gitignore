@@ -18,3 +18,7 @@
 
 # Ignore application configuration
 /config/application.yml
+
+/.ruby-version
+
+/config/initializers/backtrace_silecers.rb
