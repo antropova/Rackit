@@ -11,7 +11,7 @@
    <p><%= @user.email %></p><br>
    <p><%= @user.location %></p><br>
    <p><%= @user.bio%></p><br>
-   Current Location: <strong><%=  get_address_in_print %></strong>
+   Current Location: <strong><%= @user.current_location %></strong>
  </div>
  <% if current_user == @user %>
    <div class="col-md-8">
@@ -37,7 +37,11 @@
             <td><%= corral.borough.name %></td>
             <td><%= corral.latitude %></td>
             <td><%= corral.longitude %></td>
+            <% if corral.location != current_user.location %>
             <td><%= link_to "Checkin!", corral_checkins_path(corral.id) %></td>
+            <% else %>
+            <td><%= link_to "Checkout", corral_checkouts_path(corral.id) %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
