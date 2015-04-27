@@ -7,8 +7,12 @@ class ReviewsController < ApplicationController
 
   def create
     corral = Corral.find(params[:corral_id])
-    review = corral.reviews.create(review_params)
-    flash[:success] = "Your review has been submitted!"
+    review = corral.reviews.build(review_params)
+    if review.save
+      flash[:success] = "Your review has been submitted!"
+    else
+      flash[:danger] = "Can't be blank!"
+    end
     redirect_to corral_url(corral)
   end
 
