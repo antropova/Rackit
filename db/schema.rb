@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150427180623) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "crimes",     default: 0
+    t.integer  "distance",   default: 0
   end
 
   add_index "corrals", ["borough_id"], name: "index_corrals_on_borough_id"
