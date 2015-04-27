@@ -7,6 +7,7 @@ root 'welcome#index'
   get '/search', to: 'search#index'
   get '/search_suggestions', to: 'search#autocomplete'
   resources :users
+
   get "/profile" => "users#show", as: :profile
   get "/users" => "users#index"
   resources :crimes
