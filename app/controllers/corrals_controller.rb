@@ -16,6 +16,7 @@ class CorralsController < ApplicationController
   # GET /corrals/1.json
   def show
     @users = User.where(current_location: @corral.location)
+    @reviews = set_corral.reviews.page(params[:page]).per_page(10)
   end
 
   # GET /corrals/new

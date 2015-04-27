@@ -71,8 +71,10 @@
   </tbody>
   <%end%>
 </table>
+<%= will_paginate @reviews, previous_label: h("<"), next_label: h(">") %>
   <%= form_for([@corral, Review.new]) do |f| %>
   <div class="form-group">
+      Rating: <%= f.number_field :rating, min: 0, max: 5 %>
       <div class="field">
         <%= f.text_area :description, placeholder: "Your review here", class: "form-control", rows: "7", cols: "100" %>
       </div>
