@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :bikes
   has_many :checkins
+  has_many :checkouts
+  has_many :corrals, through: :checkouts
   has_many :corrals, through: :checkins
   has_many :bike_corrals, through: :bikes
   has_many :reviews, through: :bike_corrals

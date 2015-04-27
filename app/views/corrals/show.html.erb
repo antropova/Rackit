@@ -47,6 +47,11 @@
     <%= link_to "Check In", corral_path(@corral.id), class: "btn btn-primary" %>
   <% end %>
 </div>
+<div class="col-md-8">
+  <% if !current_user.location == @corral.location %>
+    <%= link_to "Check Out", corral_path(@corral.id), class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 <div class="col-md-12">
   <p>
@@ -59,9 +64,10 @@
       </div>
     </div>
     <div class="actions text-right">
-      <br /><%= f.submit "Submit Review", class: "btn btn-primary" %>
+      <br /><%= f.submit "Submit Review", class: "btn btn-primary" %> 
     </div>
   <% end %><br />
+
     <%# link_to 'Edit', edit_corral_path(@corral) %>
     <%# link_to 'Back', corrals_path %>
 </div>
