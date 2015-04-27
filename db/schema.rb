@@ -11,18 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424021625) do
-
-  create_table "bike_corrals", force: :cascade do |t|
-    t.integer  "bike_id"
-    t.integer  "corral_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "bike_corrals", ["bike_id"], name: "index_bike_corrals_on_bike_id"
-  add_index "bike_corrals", ["corral_id"], name: "index_bike_corrals_on_corral_id"
-
+ActiveRecord::Schema.define(version: 20150427164649) do
   create_table "bikes", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -56,6 +45,8 @@ ActiveRecord::Schema.define(version: 20150424021625) do
     t.datetime "updated_at",                 null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "crimes",     default: 0
+    t.integer  "distance",   default: 0
   end
 
   add_index "corrals", ["borough_id"], name: "index_corrals_on_borough_id"
@@ -83,12 +74,11 @@ ActiveRecord::Schema.define(version: 20150424021625) do
   create_table "reviews", force: :cascade do |t|
     t.text     "description"
     t.integer  "rating"
-    t.integer  "bike_corral_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "corral_id"
   end
-
-  add_index "reviews", ["bike_corral_id"], name: "index_reviews_on_bike_corral_id"
 
   create_table "search_suggestions", force: :cascade do |t|
     t.string   "term"

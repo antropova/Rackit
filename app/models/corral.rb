@@ -1,6 +1,6 @@
 class Corral < ActiveRecord::Base
+  has_many :reviews
   has_many :images
-  has_many :bike_corrals
   has_many :bikes, through: :bike_corrals
   has_many :checkins
   has_many :checkouts
