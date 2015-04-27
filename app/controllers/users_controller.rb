@@ -12,7 +12,6 @@ class UsersController < ApplicationController
  # GET /users/1.json
  def show
    @corrals = Corral.near([current_user.current_latitude, current_user.current_longitude], 1, units: :km)
-
    @corrals_to_view = @corrals.limit(50).page(params[:page]).per_page(10)
 
    @hash = Gmaps4rails.build_markers(@user) do |user, marker|

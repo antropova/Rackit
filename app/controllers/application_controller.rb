@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :set_user_location, :user_location, :remote_ip, :client
   private
   def current_user
-    
+
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
 
   end
@@ -20,6 +20,6 @@ class ApplicationController < ActionController::Base
   end
 
   def client
-    GooglePlaces::Client.new(ENV['GOOGLE_PLACES_KEY'])
+    GooglePlaces::Client.new(ENV['GOOGLE_API_KEY'])
   end
 end
