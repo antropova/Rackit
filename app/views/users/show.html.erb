@@ -36,7 +36,11 @@
             <td><%= corral.borough.name %></td>
             <td><%= corral.latitude %></td>
             <td><%= corral.longitude %></td>
+            <% if corral.location != current_user.location %>
             <td><%= link_to "Checkin!", corral_checkins_path(corral.id) %></td>
+            <% else %>
+            <td><%= link_to "Checkout", corral_checkouts_path(corral.id) %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

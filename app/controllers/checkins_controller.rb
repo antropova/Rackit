@@ -16,4 +16,6 @@ class CheckinsController < ApplicationController
   def destroy
 
   end
+
+
 end

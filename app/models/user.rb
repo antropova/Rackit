@@ -8,9 +8,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, on: :create, message: " is already taken"
   after_create :sign_up_user
 
-  def self.testing
-  end
-
   def self.create_with_omniauth(auth)
     new do |user|
       user.provider = auth["provider"]
