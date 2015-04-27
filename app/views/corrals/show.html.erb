@@ -52,6 +52,20 @@
   <p>
     <strong>Reviews:</strong>
   </p>
+  <table class="table table-responsive table-hover">
+  <tbody>
+  <% if !@corral.reviews.empty? %>
+    <% @corral.reviews.each do |review| %>
+      <tr>
+        <td><h5><%= review.rating %></h5>
+        <td><h5><%= review.description %></h5>
+          <p class="text-right">reviewed on <%= review.created_at.strftime("%B %d, %Y") %> by </p> 
+        </td>
+      </tr>
+    <%end%>
+  </tbody>
+  <%end%>
+</table>
   <%= form_for([@corral, Review.new]) do |f| %>
   <div class="form-group">
       <div class="field">

@@ -1,9 +1,10 @@
 <script>
- var allMarkers = <%=raw @hash.to_json %>;
- var allMarkersTwo = <%=raw @hash_two.to_json %>;
+  var allMarkers = <%=raw @hash.to_json %>;
+  var allMarkersTwo = <%=raw @hash_two.to_json %>;
 </script>
 
 <div class="row">
+
  <div class="col-md-4">
    <h1 class="page-header"><%= @user.name %></h1>
    <%= image_tag @user.image_url, class: "img-circle img-responsive" %><br>
@@ -29,7 +30,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @corrals_to_view.each do |corral| %>
+        <% @corrals.each do |corral| %>
           <tr>
             <td><%= corral.location %></td>
             <%= rack_colors(corral) %>
@@ -45,8 +46,9 @@
         <% end %>
       </tbody>
     </table>
-  <%= will_paginate @corrals_to_view, previous_label: h("<"), next_label: h(">") %>
+    <%= will_paginate @corrals_to_view, previous_label: h("<"), next_label: h(">") %>
   </div>
+
   <!-- <div class="modal fade" id="myModal">
       <div class="modal-dialog">
           <div class="modal-content">

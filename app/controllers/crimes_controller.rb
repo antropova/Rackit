@@ -10,7 +10,6 @@ class CrimesController < ApplicationController
 
   def show
     @user = User.find(current_user.id)
-
   end
 
   def new
@@ -19,6 +18,6 @@ class CrimesController < ApplicationController
 
   private
     def crime_params
-      # params.require(:crime).permit(:borough_id, :latitude, :longitude, :name)
+      # params.require(:crime).permit(:latitude, :longitude)
     end
 end
