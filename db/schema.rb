@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424021625) do
+ActiveRecord::Schema.define(version: 20150427164649) do
 
   create_table "bike_corrals", force: :cascade do |t|
     t.integer  "bike_id"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20150424021625) do
     t.datetime "updated_at",                 null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "crimes",     default: 0
+    t.integer  "distance",   default: 0
   end
 
   add_index "corrals", ["borough_id"], name: "index_corrals_on_borough_id"

@@ -23,4 +23,3 @@ class CrimeParser
 		results
 	end
 end
-CrimeParser.parse
