@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 require 'httparty'
 require 'Geocoder'
 require 'json'
