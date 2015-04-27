@@ -55,7 +55,6 @@ else
     verify_ok
   }
 end
-binding.pry
 user_agent = "net/http #{ruby_version}"
 req = Net::HTTP::Head.new('/', 'user-agent' => user_agent)
 
