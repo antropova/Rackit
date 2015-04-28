@@ -22,31 +22,25 @@
     <table class="table table-hover table-responsive">
       <thead>
         <tr>
-          <th>Location</th>
-          <th>Racks</th>
-          <th>Borough</th>
-          <th>Latitude</th>
-          <th>Longitude</th>
+          <h3>Attractions near you</h3>
         </tr>
       </thead>
       <tbody>
-        <% @corrals_to_view.each do |corral| %>
-          <tr>
-            <td><%= corral.location %></td>
-            <%= rack_colors(corral) %>
-            <td><%= corral.borough.name %></td>
-            <td><%= corral.latitude %></td>
-            <td><%= corral.longitude %></td>
-            <% if corral.location != current_user.location %>
-            <td><%= link_to "Checkin!", corral_checkins_path(corral.id) %></td>
-            <% else %>
-            <td><%= link_to "Checkout", corral_checkouts_path(corral.id) %></td>
-            <% end %>
-          </tr>
+        <% @spots.each do |spot| %>
+          <% present spot do |spot_presenter| %>
+            <tr>
+              <td><%= spot_presenter.image_url %></td>
+              <td><h3><%= spot_presenter.name %></h3></td>
+              <td><strong><%= spot_presenter.attraction_types %></strong>
+              <strong><%= spot_presenter.attraction_status %></strong>
+              <strong><%= spot_presenter.attraction_price %></strong>
+              Rating: <%= spot_presenter.attraction_rating %></td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
-    <%= will_paginate @corrals_to_view, previous_label: h("<"), next_label: h(">") %>
+    <%# will_paginate @corrals_to_view, previous_label: h("<"), next_label: h(">") %>
   </div>
 
   <!-- <div class="modal fade" id="myModal">
