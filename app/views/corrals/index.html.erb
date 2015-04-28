@@ -20,7 +20,7 @@
   <tbody>
     <% @corrals.each do |corral| %>
       <tr>
-        <td><%= corral.location %></td>
+        <td><%= link_to corral.location, corral_path(corral.id) %></td>
         <%= rack_colors(corral) %>
         <td><%= corral.borough.name %></td>
         <td><%= corral.latitude %></td>
