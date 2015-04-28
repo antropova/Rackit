@@ -1,6 +1,6 @@
 class CorralsController < ApplicationController
   before_action :set_corral, only: [:show, :edit, :update, :destroy]
-
+  
   def index
     @corrals = Corral.near([current_user.current_latitude, current_user.current_longitude]).limit(10)
     @hash = Gmaps4rails.build_markers(@corrals) do |corral, marker|
