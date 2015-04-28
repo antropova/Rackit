@@ -41,6 +41,7 @@
         <% if current_user %>
           <li><%= link_to "Users", users_path, class: "smothscroll" %></li>
           <li><%= link_to "Profile", user_path(current_user), class: "smothscroll" %></li>
+          <li><%= link_to "Bike racks", corrals_path, class: "smothscroll" %></li>
           <li><%= link_to "Sign Out", signout_path, class: "smothscroll" %></li>
         <% else %>
             <li><%= link_to "Sign In", "/auth/twitter" %></li>
