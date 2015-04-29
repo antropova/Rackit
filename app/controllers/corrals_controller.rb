@@ -1,5 +1,6 @@
 class CorralsController < ApplicationController
   before_action :set_corral, only: [:show, :edit, :update, :destroy]
+  before_action :change_corral, only: [:new, :create, :edit, :update, :destroy]
   
   def index
     @corrals = Corral.near([current_user.current_latitude, current_user.current_longitude]).limit(10)
@@ -59,6 +60,13 @@ class CorralsController < ApplicationController
 
     def set_corral
       @corral = Corral.find(params[:id])
+    end
+
+    def change_corral
+      if !current_user.admin?
+        flash[:danger] = "Sorry, you cant #{params[:action]} this corral. Click this message to close it"
+        redirect_to set_corral
+      end
     end
 
     def corral_params
