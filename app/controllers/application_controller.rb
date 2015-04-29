@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def client
-    GooglePlaces::Client.new(ENV['GOOGLE_API_KEY'])
+    GooglePlaces::Client.new(ENV['GOOGLE_PLACES_KEY'])
   end
 
   def current_permission
