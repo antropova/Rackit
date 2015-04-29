@@ -17,6 +17,14 @@
 </head>
 <body>
   <%= render "layouts/header" %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      setTimeout(function(){
+        $('.alert').show().fadeOut(1000);
+      }, 2000);
+     })
+  </script>
+
   <div class="main">
     <div class="container">
       <% flash.each do |key, value| %>
