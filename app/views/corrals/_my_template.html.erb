@@ -1,4 +1,4 @@
-<p>Address: <%= object.location %></p>
+<p><%= object.location %></p>
 <p>Approximate number of racks: <%= object.racks %></p>
 <p class="text-center"><%= link_to "See the rack", corral_path(object.id), class: "btn btn-primary" %>  
 <% if current_user.checked_in? %>
