@@ -14,7 +14,11 @@ class CheckinsController < ApplicationController
   end
 
   def destroy
-
+    corral = Corral.find(params[:corral_id])
+    current_user.checkout(corral)
+    current_user.update!(user_location_params)
+    flash[:success] = "You have checked out successfully"
+    redirect_to corral_path(corral.id)
   end
 
 

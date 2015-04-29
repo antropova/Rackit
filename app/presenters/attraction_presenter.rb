@@ -43,6 +43,6 @@ class AttractionPresenter < BasePresenter
   end
 
   def image_properties
-    "&sensor=false&maxheight=300&maxwidth=700&key=#{ENV['GOOGLE_PLACES_KEY']}"
+    "&sensor=false&maxheight=300&maxwidth=700&key=#{ENV['GOOGLE_API_KEY']}"
   end
 end

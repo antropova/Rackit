@@ -23,3 +23,6 @@
 //= require corrals
 //= require crime_map
 
+
+//= require navbar
+
