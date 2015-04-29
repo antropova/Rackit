@@ -12,8 +12,6 @@
   <div class="field">
     <%= f.hidden_field :provider, value: @user.provider %>
     <%= f.hidden_field :uid, value: @user.uid %>
-    <%= f.hidden_field :image_url, value: @user.image_url %>
-    <%= f.hidden_field :profile_image_url, value: @user.profile_image_url %>
   </div>
 
   <div class="form-group">
@@ -27,6 +25,13 @@
     <div class="field">
       <br><%= f.label :email, "Email", class: "control-label" %>
       <br><%= f.text_field :email, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="field">
+      <br><%= f.label :image_url, "Image", class: "control-label" %>
+      <br><%= f.text_field :image_url, class: "form-control" %>
     </div>
   </div>
 

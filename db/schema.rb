@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429134936) do
-
+ActiveRecord::Schema.define(version: 20150429143326) do
 
   create_table "bikes", force: :cascade do |t|
     t.integer  "user_id"
@@ -104,7 +103,6 @@ ActiveRecord::Schema.define(version: 20150429134936) do
     t.float    "current_latitude",   default: 0.0
     t.float    "current_longitude",  default: 0.0
     t.string   "current_sign_in_ip"
-    t.string   "profile_image_url"
     t.boolean  "admin",              default: false
   end
 

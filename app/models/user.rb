@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
       user.email = auth["info"]["email"]
       user.location = auth["info"]["location"]
       user.image_url = auth["info"]["image"]
-      user.profile_image_url = auth["info"]["image"].split(/_(?=n)/)[0].concat("_200x200.jpg")
     end
   end
 
