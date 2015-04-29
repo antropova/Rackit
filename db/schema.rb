@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150429134936) do
 
+
   create_table "bikes", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -104,6 +105,7 @@ ActiveRecord::Schema.define(version: 20150429134936) do
     t.float    "current_longitude",  default: 0.0
     t.string   "current_sign_in_ip"
     t.string   "profile_image_url"
+    t.boolean  "admin",              default: false
   end
 
 end
