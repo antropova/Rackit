@@ -2,8 +2,12 @@ class User < ActiveRecord::Base
   has_many :bikes
   has_many :checkins
   has_many :corrals, through: :checkins
-  has_many :bike_corrals, through: :bikes
-  has_many :reviews, through: :bike_corrals
+  # has_many :bike_corrals, through: :bikes
+  has_many :reviews, through: :checkins
+
+  has_many :checkins_with_reviews, through: :reviews, :source => :checkin
+  has_many :reviewed_corrals, -> { uniq }, through: :checkins_with_reviews, :source => :corral
+
   validates_presence_of :email, :name, on: :create, message: "can't be blank"
   validates_uniqueness_of :email, on: :create, message: " is already taken"
   after_create :sign_up_user
@@ -28,6 +32,10 @@ class User < ActiveRecord::Base
   def checkout(corral)
     corral.update!(racks: corral.racks += 1)
     self.update!(checked_in: false)
+  end
+
+  def fetch_latest_checkin(corral)
+    Checkin.where(:corral_id => corral.id, :user_id => self.id).last
   end
 
   private

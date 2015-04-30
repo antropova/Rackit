@@ -38,6 +38,8 @@
   <% else %>
     <%= link_to "Check Out", corral_checkouts_path(@corral.id), class: "btn btn-primary" %>
   <% end %>
+  <p>Averate rating</p>
+  <div id="star"></div>
 </div>
 
 <div class="col-md-12">
@@ -46,31 +48,37 @@
   </p>
   <table class="table table-responsive table-hover">
   <tbody>
-  <% if !@corral.reviews.empty? %>
+  <%# if !@corral.reviews.empty? %>
     <% @corral.reviews.each do |review| %>
       <tr>
         <td><h5><%= review.rating %></h5>
         <td><h5><%= review.description %></h5>
-          <p class="text-right">reviewed on <%= review.created_at.strftime("%B %d, %Y") %> by <%= link_to review.user.name, user_path(review.user.id) %></p> 
+          <p class="text-right">reviewed on <%= review.created_at.strftime("%B %d, %Y") %> by <%= link_to review.checkin.user.name, user_path(review.checkin.user.id) %></p> 
         </td>
       </tr>
     <%end%>
   </tbody>
-  <%end%>
+  <%#end%>
 </table>
 <%= will_paginate @reviews, previous_label: h("<"), next_label: h(">") %>
-  <%= form_for([@corral, Review.new]) do |f| %>
-  <div class="form-group">
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      Rating: <%= f.number_field :rating, min: 0, max: 5 %>
-      <div class="field">
-        <%= f.text_area :description, placeholder: "Your review here", class: "form-control", rows: "7", cols: "100" %>
+
+  <% if current_user.corrals.include?(@corral) %>
+    <%= form_for Review.new do |f| %>
+      <div class="form-group">
+        <%= f.hidden_field :checkin_id, value: current_user.fetch_latest_checkin(@corral).id %>
+        
+        Rating: <div id="user_star"><%= f.number_field :rating %></div>
+        <div class="field">
+          <%= f.text_area :description, placeholder: "Your review here", class: "form-control", rows: "7", cols: "100" %>
+        </div>
       </div>
-    </div>
-    <div class="actions text-right">
-      <br /><%= f.submit "Submit Review", class: "btn btn-primary" %>
-    </div>
-  <% end %><br />
+      <div class="actions text-right">
+        <br /><%= f.submit "Submit Review", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <br />
     <%# link_to 'Edit', edit_corral_path(@corral) %>
     <%# link_to 'Back', corrals_path %>
 </div>

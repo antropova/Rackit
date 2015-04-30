@@ -6,14 +6,16 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    corral = Corral.find(params[:corral_id])
-    review = corral.reviews.build(review_params)
-    if review.save
+    # binding.pry
+    @review = Review.new(review_params)
+    @corral = @review.corral
+    if @review.save
       flash[:success] = "Your review has been submitted!"
+      redirect_to :back
     else
       flash[:danger] = "Can't be blank!"
+      render "corrals/show"
     end
-    redirect_to corral_url(corral)
   end
 
   def new
@@ -26,6 +28,6 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:description, :user_id, :rating)
+    params.require(:review).permit(:description, :checkin_id, :rating)
   end
 end
