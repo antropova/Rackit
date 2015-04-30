@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20150429143326) do
 
   create_table "bikes", force: :cascade do |t|
@@ -105,7 +104,6 @@ ActiveRecord::Schema.define(version: 20150429143326) do
     t.float    "current_longitude",  default: 0.0
     t.string   "current_sign_in_ip"
     t.boolean  "admin",              default: false
-    t.string   "profile_image_url"
   end
 
 end
