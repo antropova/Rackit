@@ -22,6 +22,10 @@ class ReviewsController < ApplicationController
     
   end
 
+  def update
+    binding.pry
+  end
+
   def edit
     
   end

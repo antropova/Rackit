@@ -15,6 +15,7 @@ class CorralsController < ApplicationController
     @users = User.where(current_location: @corral.location)
     @reviews = set_corral.reviews.page(params[:page]).per_page(5)
     # @review = Review.find(params[:id])
+    @review = Review.new
   end
 
   def new

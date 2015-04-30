@@ -64,11 +64,11 @@
 
   <% if current_user.corrals.include?(@corral) %>
   <h5>Leave a review for this rack please!</h5>
-    <%= form_for Review.new do |f| %>
+    <%= form_for @review do |f| %>
       <div class="form-group">
         <%= f.hidden_field :checkin_id, value: current_user.fetch_latest_checkin(@corral).id %>
-        
-        Rating: <div id="user_star"><%= f.number_field :rating %></div>
+        <%= f.hidden_field :rating, value: 0 %>
+        Rating: <div id="user_star"></div>
         <div class="field">
           <%= f.text_area :description, placeholder: "Your review here", class: "form-control", rows: "7", cols: "100" %>
         </div>
@@ -89,6 +89,14 @@
     readOnly: true,
     score: <%= @corral.average_rating %>,
     path: '/assets'
+  });
+
+  $('#user_star').raty({
+    score: 0,
+    path: '/assets',
+    click: function(score, evt) {
+      $("#review_rating").val(score);
+    }
   });
 
 </script>
