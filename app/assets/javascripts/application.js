@@ -23,3 +23,4 @@
 //= require corrals
 //= require crime_map
 //= require navbar
+//= require raty.min.js

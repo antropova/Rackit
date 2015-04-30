@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428195044) do
+ActiveRecord::Schema.define(version: 20150430184400) do
 
   create_table "bikes", force: :cascade do |t|
     t.integer  "user_id"
@@ -39,15 +39,17 @@ ActiveRecord::Schema.define(version: 20150428195044) do
 
   create_table "corrals", force: :cascade do |t|
     t.string   "location"
-    t.boolean  "sheltered",  default: false
-    t.integer  "racks",      default: 1
+    t.boolean  "sheltered",     default: false
+    t.integer  "racks",         default: 1
     t.integer  "borough_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "crimes",     default: 0
-    t.integer  "distance",   default: 0
+    t.integer  "crimes",        default: 0
+    t.integer  "distance",      default: 0
+    t.integer  "total_rating",  default: 0
+    t.integer  "total_reviews", default: 0
   end
 
   add_index "corrals", ["borough_id"], name: "index_corrals_on_borough_id"
@@ -74,11 +76,10 @@ ActiveRecord::Schema.define(version: 20150428195044) do
 
   create_table "reviews", force: :cascade do |t|
     t.text     "description"
-    t.integer  "rating"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "user_id"
-    t.integer  "corral_id"
+    t.integer  "rating",      default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "checkin_id"
   end
 
   create_table "search_suggestions", force: :cascade do |t|

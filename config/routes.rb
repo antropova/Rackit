@@ -11,6 +11,7 @@ root 'welcome#index'
   get "/profile" => "users#show", as: :profile
   get "/users" => "users#index"
   resources :crimes
+  resources :reviews, :only => [:create]
   resources :corrals do
     resources :reviews
     get '/checkin', to: 'checkins#create', as: "checkins"
