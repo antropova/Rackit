@@ -29,18 +29,18 @@
        </tr>
      </thead>
      <tbody>
-       <% @spots.each do |spot| %>
-         <% present spot do |spot_presenter| %>
+       <%# @spots.each do |spot| %>
+         <%# present spot do |spot_presenter| %>
            <tr>
-             <td><%= spot_presenter.image_url %></td>
-             <td><h3><%= spot_presenter.name %></h3></td>
-             <td><strong><%= spot_presenter.attraction_types %></strong>
-             <strong><%= spot_presenter.attraction_status %></strong>
-             <strong><%= spot_presenter.attraction_price %></strong>
-             Rating: <%= spot_presenter.attraction_rating %></td>
+             <td><%#= spot_presenter.image_url %></td>
+             <td><h3><%#= spot_presenter.name %></h3></td>
+             <td><strong><%#= spot_presenter.attraction_types %></strong>
+             <strong><%#= spot_presenter.attraction_status %></strong>
+             <strong><%#= spot_presenter.attraction_price %></strong>
+             Rating: <%#= spot_presenter.attraction_rating %></td>
            </tr>
-         <% end %>
-       <% end %>
+         <%# end %>
+       <%# end %>
      </tbody>
    </table>
    <%# will_paginate @corrals_to_view, previous_label: h("<"), next_label: h(">") %>
