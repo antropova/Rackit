@@ -13,7 +13,7 @@ class CorralsController < ApplicationController
 
   def show
     @users = User.where(current_location: @corral.location)
-    @reviews = set_corral.reviews.page(params[:page]).per_page(10)
+    @reviews = set_corral.reviews.page(params[:page]).per_page(5)
     # @review = Review.find(params[:id])
   end
 

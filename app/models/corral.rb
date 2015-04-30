@@ -16,7 +16,7 @@ class Corral < ActiveRecord::Base
     search(search).limit(5).pluck(:location)
   end
 
-  # def gmaps4rails_title
-  #   "#{self.location}"
-  # end
+  def average_rating
+    self.total_rating / self.total_reviews.to_f
+  end
 end

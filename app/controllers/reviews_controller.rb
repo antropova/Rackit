@@ -6,10 +6,10 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @review = Review.new(review_params)
     @corral = @review.corral
     if @review.save
+      update_corral_rating(@corral)
       flash[:success] = "Your review has been submitted!"
       redirect_to :back
     else
@@ -29,5 +29,11 @@ class ReviewsController < ApplicationController
   private
   def review_params
     params.require(:review).permit(:description, :checkin_id, :rating)
+  end
+
+  def update_corral_rating(corral)
+    corral.total_reviews += 1
+    corral.total_rating += @review.rating
+    corral.save
   end
 end
