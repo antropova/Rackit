@@ -13,13 +13,23 @@ $( document ).ready(function() {
       internal: {id: 'map'}
     },
      function(){
+
       var addedTogether = allMarkers.concat(allMarkersTwo);
       markers = handler.addMarkers(addedTogether);
+      
       handler.bounds.extendWith(markers);
-         handler.fitMapToBounds();
-        handler.getMap().setZoom(15);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(15);
     });
   }
+// circle = [{lng: <%= @crimes.longitude %>, lat: <%= @crimes.latitude %>, radius: 25000, strokeColor: "#FF0000"}]
+// handler = Gmaps.build('Google');
+//       handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+//       markers = handler.addMarkers(<%=raw @hash.to_json %>);
+//       handler.bounds.extendWith(markers);
+//       handler.addCircle(circle);
+//       handler.fitMapToBounds()
+//       handler.getMap().setZoom(12);
 
 });
 

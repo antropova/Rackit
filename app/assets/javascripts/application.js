@@ -23,6 +23,8 @@
 //= require corrals
 //= require crime_map
 
+//= require jsapi
 
+//= require chartkick
 //= require navbar
 
