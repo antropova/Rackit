@@ -1,0 +1,8 @@
+<p><%= object.location %></p>
+<p>Approximate number of racks: <%= object.racks %></p>
+<p class="text-center"><%= link_to "See the rack", corral_path(object.id), class: "btn btn-primary" %>  
+<% if current_user.checked_in? %>
+  <%= link_to "Check out", corral_checkouts_path(object.id), class: "btn btn-primary" %>
+<% else %>
+  <%= link_to "Check in", corral_checkins_path(object.id), class: "btn btn-primary" %>
+<% end %></p>
