@@ -38,7 +38,7 @@
   <% else %>
     <%= link_to "Check Out", corral_checkouts_path(@corral.id), class: "btn btn-primary" %>
   <% end %>
-  <p>Averate rating</p>
+  <p>Average rating</p>
   <div id="star"></div>
 </div>
 
@@ -83,3 +83,12 @@
     <%# link_to 'Edit', edit_corral_path(@corral) %>
     <%# link_to 'Back', corrals_path %>
 </div>
+
+<script>
+  $('#star').raty({
+    readOnly: true,
+    score: <%= @corral.average_rating %>,
+    path: '/assets'
+  });
+
+</script>
