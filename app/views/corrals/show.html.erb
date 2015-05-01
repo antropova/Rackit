@@ -30,15 +30,16 @@
     <strong>Borough:</strong>
     <%= @corral.borough.name %>
   </p>
+  <div class="col-md-8">
+    <% if !current_user.checked_in %>
+      <%= link_to "Check In", corral_checkins_path(@corral.id), class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Check Out", corral_checkouts_path(@corral.id), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
 </div>
 
-<div class="col-md-8">
-  <% if !current_user.checked_in %>
-    <%= link_to "Check In", corral_checkins_path(@corral.id), class: "btn btn-primary" %>
-  <% else %>
-    <%= link_to "Check Out", corral_checkouts_path(@corral.id), class: "btn btn-primary" %>
-  <% end %>
-</div>
 
 <div class="col-md-12">
   <p>
@@ -51,7 +52,7 @@
       <tr>
         <td><h5><%= review.rating %></h5>
         <td><h5><%= review.description %></h5>
-          <p class="text-right">reviewed on <%= review.created_at.strftime("%B %d, %Y") %> by <%= link_to review.user.name, user_path(review.user.id) %></p> 
+          <p class="text-right">reviewed on <%= review.created_at.strftime("%B %d, %Y") %> by <%= link_to review.user.name, user_path(review.user.id) %></p>
         </td>
       </tr>
     <%end%>

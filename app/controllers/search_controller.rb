@@ -1,7 +1,8 @@
 class SearchController < ApplicationController
   def index
+    binding.pry
     @corrals = Corral.search(params[:search])
-    if @corrals.size == 1 
+    if @corrals.size == 1
       redirect_to corral_path(@corrals.first)
     end
   end

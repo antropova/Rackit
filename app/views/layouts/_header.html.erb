@@ -15,7 +15,13 @@
         <li>
           <%= link_to current_user do %>
             <%= current_user.name %>
-            <%= image_tag current_user.image_url, class: "pull-right img-circle profile-img showopacity" %>
+            <%= image_tag current_user.image_url, class: "pull-right img-circle profile-img" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to corrals_path do %>
+          Nearby Corrals
+          <%= content_tag :span, nil, class: "pull-right fa fa-2x fa-bicycle  " %>
           <% end %>
         </li>
         <li>

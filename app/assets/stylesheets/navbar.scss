@@ -14,6 +14,10 @@ margin: 0px;
   right: 10px;
 }
 
+nav.navbar {
+  position: fixed;
+}
+
 /*Remove rounded coners*/
 
 nav.sidebar.navbar {
@@ -30,6 +34,10 @@ nav.sidebar, .main{
 /* Add gap to nav and right windows.*/
 .main{
 padding: 10px 10px 0 10px;
+}
+
+li > a {
+  font-size: 16px;
 }
 
 /* .....NavBar: Icon only with coloring/layout.....*/

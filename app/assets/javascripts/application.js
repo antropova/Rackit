@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap/modal
-//= require bootstrap/carousel
 //= require underscore
 //= require gmaps/google
 //= require_tree ../../../vendor/assets/javascripts/.

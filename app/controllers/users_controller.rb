@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   def show
     @corrals = Corral.near([current_user.current_latitude, current_user.current_longitude], 1, units: :km)
     @spots = client.spots(current_user.current_latitude, current_user.current_longitude, types: ['restaurant', 'food', 'cafe', 'museum', 'park', 'bakery'], radius: 800)
-
     @corrals_to_view = @corrals.limit(50).page(params[:page]).per_page(10)
 
     @hash = Gmaps4rails.build_markers(@user) do |user, marker|
