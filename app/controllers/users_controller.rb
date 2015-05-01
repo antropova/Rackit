@@ -25,6 +25,15 @@ class UsersController < ApplicationController
         "height" => 50
         })
     end
+    @hash_two = Gmaps4rails.build_markers(@corrals) do |corral, marker|
+      marker.lat(corral.latitude)
+      marker.lng(corral.longitude)
+      marker.infowindow render_to_string(:partial => "/corrals/my_template", :locals => { :object => corral })
+      marker.picture({
+        "url" => "http://www.edmonton.ca/activities_parks_recreation/documents/Logos/icon_bike_32x32.png",
+        "width" => 50,
+        "height" => 50
+        })
   end
 
   def edit

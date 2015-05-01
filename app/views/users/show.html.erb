@@ -29,36 +29,28 @@
   </div>
 <% end %>
 <div class="row">
- <div class="col-md-6 col-md-offset-3">
-   <h3>Check Crime Rates Around Your Selected Rack Location</h3>
-   <iframe src="https://www.google.com/maps/d/embed?mid=zRUgBYjYj9Xg.ktXuyK8qNrjs" width="640" height="480"></iframe>
- </div>
-</div>
-<div class="col-md-12">
- <table class="table table-hover table-responsive">
-   <thead>
+ <tr>
+   <h3>Attractions near you</h3>
+ </tr>
+</thead>
+<tbody>
+ <% @spots.each do |spot| %>
+   <% present spot do |spot_presenter| %>
      <tr>
-       <h3>Attractions near you</h3>
+       <td><%= spot_presenter.image_url %></td>
+       <td><h3><%= spot_presenter.name %></h3></td>
+       <td><strong><%= spot_presenter.attraction_types %></strong>
+       <strong><%= spot_presenter.attraction_status %></strong>
+       <strong><%= spot_presenter.attraction_price %></strong>
+       Rating: <%= spot_presenter.attraction_rating %></td>
+       <td>
+         <%= form_tag directions_path, method: :get %>
+          <%= hidden_field_tag :vicinity, spot.vicinity %>
+          <%= submit_tag "Get Directions", class: "btn btn-primary" %>
+       </td>
      </tr>
-   </thead>
-   <tbody>
-     <% @spots.each do |spot| %>
-       <% present spot do |spot_presenter| %>
-         <tr>
-           <td><%= spot_presenter.image_url %></td>
-           <td><h3><%= spot_presenter.name %></h3></td>
-           <td><strong><%= spot_presenter.attraction_types %></strong>
-           <strong><%= spot_presenter.attraction_status %></strong>
-           <strong><%= spot_presenter.attraction_price %></strong>
-           Rating: <%= spot_presenter.attraction_rating %></td>
-           <td>
-             <%= form_tag directions_path, method: :get %>
-              <%= hidden_field_tag :vicinity, spot.vicinity %>
-              <%= submit_tag "Get Directions", class: "btn btn-primary" %>
-           </td>
-         </tr>
-       <% end %>
-     <% end %>
-   </tbody>
- </table>
+   <% end %>
+ <% end %>
+</tbody>
+</table>
 </div>
