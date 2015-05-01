@@ -34,6 +34,7 @@ class UsersController < ApplicationController
         "width" => 50,
         "height" => 50
         })
+      end
   end
 
   def edit
