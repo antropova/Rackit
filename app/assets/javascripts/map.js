@@ -13,9 +13,10 @@ $( document ).ready(function() {
 
       var addedTogether = allMarkers.concat(allMarkersTwo);
       markers = handler.addMarkers(addedTogether);
-      
+
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
       handler.getMap().setZoom(15);
     });
   }
+}
