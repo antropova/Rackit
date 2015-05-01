@@ -4,9 +4,9 @@
   <% if current_user.current_location == @corral.location %>
     <strong>You are currently checked in at this corral</strong>
   <% end %>
-  Users currently at this corral:
+  <h5>Users currently at this corral:</h5>
   <% @users.each do |user| %>
-    <%= link_to "#{user.name}", user_path(user) %>
+    <p><%= link_to "#{user.name}", user_path(user) %></p>
   <% end %>
 
   <% if !@corral.images.empty? %>
@@ -30,48 +30,78 @@
     <strong>Borough:</strong>
     <%= @corral.borough.name %>
   </p>
-  <div class="col-md-8">
-    <% if !current_user.checked_in %>
-      <%= link_to "Check In", corral_checkins_path(@corral.id), class: "btn btn-primary" %>
-    <% else %>
-      <%= link_to "Check Out", corral_checkouts_path(@corral.id), class: "btn btn-primary" %>
-    <% end %>
-  </div>
 
+<div class="col-md-8">
+  <% if !current_user.checked_in %>
+    <%= link_to "Check In", corral_checkins_path(@corral.id), class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "Check Out", corral_checkouts_path(@corral.id), class: "btn btn-primary" %>
+  <% end %>
+  <p>Average rating</p>
+  <div id="star"></div>
 </div>
 
 
 <div class="col-md-12">
-  <p>
-    <strong>Reviews:</strong>
-  </p>
-  <table class="table table-responsive table-hover">
-  <tbody>
   <% if !@corral.reviews.empty? %>
+  <p><strong>Reviews:</strong></p>
+  <table class="table table-responsive table-hover">
+    <tbody>
     <% @corral.reviews.each do |review| %>
       <tr>
-        <td><h5><%= review.rating %></h5>
+        <td><div class="starry" value="<%= review.rating %>" ></div></td>
         <td><h5><%= review.description %></h5>
           <p class="text-right">reviewed on <%= review.created_at.strftime("%B %d, %Y") %> by <%= link_to review.user.name, user_path(review.user.id) %></p>
+          <p class="text-right">reviewed on <%= review.created_at.strftime("%B %d, %Y") %> by <%= link_to review.checkin.user.name, user_path(review.checkin.user.id) %></p>
         </td>
       </tr>
     <%end%>
   </tbody>
-  <%end%>
+  <% end %>
 </table>
 <%= will_paginate @reviews, previous_label: h("<"), next_label: h(">") %>
-  <%= form_for([@corral, Review.new]) do |f| %>
-  <div class="form-group">
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      Rating: <%= f.number_field :rating, min: 0, max: 5 %>
-      <div class="field">
-        <%= f.text_area :description, placeholder: "Your review here", class: "form-control", rows: "7", cols: "100" %>
+<% if current_user.corrals.include?(@corral) %>
+  <h5>Leave a review for this rack please!</h5>
+    <%= form_for @review do |f| %>
+      <div class="form-group">
+        <%= f.hidden_field :checkin_id, value: current_user.fetch_latest_checkin(@corral).id %>
+        <%= f.hidden_field :rating, value: 0 %>
+        <div id="user_star"></div>
+        <div class="field">
+          <%= f.text_area :description, placeholder: "Your review here", class: "form-control", rows: "7", cols: "100" %>
+        </div>
       </div>
-    </div>
-    <div class="actions text-right">
-      <br /><%= f.submit "Submit Review", class: "btn btn-primary" %>
-    </div>
-  <% end %><br />
+      <div class="actions text-right">
+        <br /><%= f.submit "Submit Review", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+<% end %>
+
+  <br />
     <%# link_to 'Edit', edit_corral_path(@corral) %>
     <%# link_to 'Back', corrals_path %>
 </div>
+<script>
+  $('#star').raty({
+    readOnly: true,
+    score: <%= @corral.average_rating %>,
+    path: '/assets'
+  });
+
+  $.each( $('.starry'), function( index, star ) {
+    $(star).raty({
+      readOnly: true,
+      score: $(star).attr("value"),
+      path: '/assets'
+    });
+  });
+
+  $('#user_star').raty({
+    score: 0,
+    path: '/assets',
+    click: function(score, evt) {
+      $("#review_rating").val(score);
+    }
+  });
+
+</script>

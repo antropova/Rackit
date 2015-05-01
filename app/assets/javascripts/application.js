@@ -24,3 +24,4 @@
 //= require crime_map
 //= require navbar
 //= require alert
+//= require raty.min.js

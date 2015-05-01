@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users 
   get "/profile", to: "users#show", as: :profile
   get "/directions", to: "attractions#directions", as: "directions"
+  resources :reviews, :only => [:create]
   resources :corrals do
     resources :reviews
     get '/checkin', to: 'checkins#create', as: "checkins"

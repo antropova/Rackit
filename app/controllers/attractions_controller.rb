@@ -7,6 +7,5 @@ class AttractionsController < ApplicationController
     loader = DirectionsLoader.new
     directions = loader.get_directions_based_on_address(current_user.current_location, params[:vicinity])
     @directions = directions["routes"][0]["legs"][0]["steps"]
-    binding.pry
   end
 end
