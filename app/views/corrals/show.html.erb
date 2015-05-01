@@ -52,7 +52,6 @@
         <td><div class="starry" value="<%= review.rating %>" ></div></td>
         <td><h5><%= review.description %></h5>
           <p class="text-right">reviewed on <%= review.created_at.strftime("%B %d, %Y") %> by <%= link_to review.user.name, user_path(review.user.id) %></p>
-          <p class="text-right">reviewed on <%= review.created_at.strftime("%B %d, %Y") %> by <%= link_to review.checkin.user.name, user_path(review.checkin.user.id) %></p>
         </td>
       </tr>
     <%end%>
