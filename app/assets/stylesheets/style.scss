@@ -1,0 +1,48 @@
+*{
+	padding:0;
+	margin:0;
+}
+
+.hero {
+	background: url("http://nyulocal.com/wp-content/uploads/2014/09/bikes.jpg") 50% 50% / cover no-repeat;
+	-webkit-background-size: cover;
+	padding: 140px 0px;
+	height: auto;
+}
+
+
+body {
+  width: 100%;
+	font-weight: 300;
+  line-height: 1.6em;
+	font-weight: 400;
+	overflow-x: hidden;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+h1.animated {
+	color: #2196f3
+}
+
+/* ===========================
+--- Footer
+============================ */
+
+footer {
+    background-color: #404040;
+}
+
+footer {
+	text-align: center;
+	padding: 50px 0 30px ;
+
+}
+
+footer p {
+	color: #f8f8f8;
+	font-size: 14px;
+}
