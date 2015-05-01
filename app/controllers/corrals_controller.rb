@@ -1,6 +1,6 @@
 class CorralsController < ApplicationController
   before_action :set_corral, only: [:show, :edit, :update, :destroy]
-  before_action :change_corral, only: [:new, :create, :edit, :update, :destroy]
+  before_action :change_corral, only: [:create, :edit, :update, :destroy]
   
   def index
     @corrals = Corral.near([current_user.current_latitude, current_user.current_longitude]).limit(10)
@@ -13,7 +13,9 @@ class CorralsController < ApplicationController
 
   def show
     @users = User.where(current_location: @corral.location)
-    @reviews = set_corral.reviews.page(params[:page]).per_page(10)
+    @reviews = set_corral.reviews.page(params[:page]).per_page(5)
+    # @review = Review.find(params[:id])
+    @review = Review.new
   end
 
   def new

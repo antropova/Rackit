@@ -1,0 +1,18 @@
+<div class="page-header">
+  <h2>From: <%= current_user.current_location  %></h2>
+  <h2>To: <%= params[:vicinity] %></h2>
+</div>
+<% @directions.each.with_index(1) do |direction, index| %>
+  <div class="row">
+    <h3 class="text-center">Step <%= index %></h3>
+    <div class="col-md-4">
+      <dl class="dl-horizontal">
+        <dt>Distance:</dt>
+        <dd><%= direction["distance"]["text"] %></dd>
+      </dl>
+    </div>
+    <div class="col-md-6">
+      <%= raw direction["html_instructions"] %>
+    </div>
+  </div>
+<% end %>

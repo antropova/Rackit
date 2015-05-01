@@ -28,3 +28,6 @@
 //= require chartkick
 //= require navbar
 
+//= require alert
+//= require raty.min.js
+

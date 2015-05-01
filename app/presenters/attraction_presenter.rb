@@ -33,7 +33,15 @@ class AttractionPresenter < BasePresenter
     if @model.rating
       @model.rating
     else
-      h.content_tag(:p, "There is no rating on this area yet", class: "text-success")
+      h.content_tag(:p, "There is no rating on this area yet", class: "text-muted")
+    end
+  end
+
+  def attraction_website
+    if @model.website
+      h.link_to "#{@model.website}", @model.website
+    else
+      h.content_tag(:p, "No website given", class: "text-muted")
     end
   end
 

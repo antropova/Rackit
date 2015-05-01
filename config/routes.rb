@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
-root 'welcome#index'
+  root 'welcome#index'
   get "/auth/:provider/callback", to: "sessions#create", as: "signin"
   get 'signout', to: 'sessions#destroy', as: "signout"
-  get '/attractions', to: 'attractions#index', as: "attractions"
+  get '/attractions', to: 'users#attractions', as: "attractions"
   # get 'auth/failure', to: redirect('/')  -- think of a route here
   get '/search', to: 'search#index'
   get '/search_suggestions', to: 'search#autocomplete'
-  resources :users
-
-  get "/profile" => "users#show", as: :profile
-  get "/users" => "users#index"
-  resources :crimes
+  resources :users 
+  get "/profile", to: "users#show", as: :profile
+  get "/directions", to: "attractions#directions", as: "directions"
+  resources :reviews, :only => [:create]
   resources :corrals do
     resources :reviews
     get '/checkin', to: 'checkins#create', as: "checkins"

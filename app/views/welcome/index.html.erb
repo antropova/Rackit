@@ -11,7 +11,7 @@
               <div class="input-group">
                 <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search by location"%>
                 <div class="input-group-addon">
-                  <span class=" glyphicon glyphicon-search"></span>
+                  <i class="fa fa-search"></i>
                 </div>
               </div>
             <% end %>
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <center><%= link_to "Advanced search", users_path %></center>
+  <center><%#= link_to "Advanced search", users_path %></center>
   <%# set path to users path until advanced search is built %>
 <% else %>
   <div class="text-center">
