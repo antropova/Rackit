@@ -33,44 +33,10 @@ var allMarkersTwo = <%=raw @hash_two.to_json %>;
 <% end %>
 
 
-
- <div class="col-md-12">
-   <table class="table table-hover table-responsive">
-     <thead>
-       <tr>
-
-         <th>Location</th>
-         <th>Racks</th>
-         <th>Borough</th>
-         <th>Latitude</th>
-         <th>Longitude</th>
-       </tr>
-     </thead>
-     <tbody>
-       <% @corrals_to_view.each do |corral| %>
-         <tr>
-           <td><%= corral.location %></td>
-           <%= rack_colors(corral) %>
-           <td><%= corral.borough.name %></td>
-           <td><%= corral.latitude %></td>
-           <td><%= corral.longitude %></td>
-           <% if corral.location != current_user.location %>
-           <td><%= link_to "Checkin!", corral_checkins_path(corral.id) %></td>
-           <% else %>
-           <td><%= link_to "Checkout", corral_checkouts_path(corral.id) %></td>
-           <% end %>
-         </tr>
-       <% end %>
-     </tbody>
-   </table>
- <%= will_paginate @corrals_to_view, previous_label: h("<"), next_label: h(">") %>
-</div>
-
 <div class="row">
-  
-  <div class="col-xs-6">
+  <div class="col-md-6 col-md-offset-3">
     <h3>Check Crime Rates Around Your Selected Rack Location</h3>
-<iframe src="https://www.google.com/maps/d/embed?mid=zRUgBYjYj9Xg.ktXuyK8qNrjs" width="640" height="480"></iframe>
+    <iframe src="https://www.google.com/maps/d/embed?mid=zRUgBYjYj9Xg.ktXuyK8qNrjs" width="640" height="480"></iframe>
   </div>
 </div>
 
